@@ -1,11 +1,12 @@
 import { promises as fsp } from "fs"; //file system operations
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"; //divide il testo in chunks
-import { MongoDBAtlasVectorSearch } from "langchain/vectorstores/mongodb_atlas"; //salva i vettori in mongoDB atlas
-import { OpenAIEmbeddings } from "langchain/embeddings/openai"; // crea embeddings
+import { MongoDBAtlasVectorSearch } from "@langchain/mongodb"; // salva i vettori in mongoDB atlas
+import { OpenAIEmbeddings } from "@langchain/openai"; // crea embeddings (usa il pacchetto @langchain)
 import { MongoClient } from "mongodb"; //mongo databse
 import "dotenv/config"; // variabili d'ambiente
 
 const client = new MongoClient(process.env.MONGODB_ATLAS_URI || "");
+await client.connect(); // connetti il client prima di ottenere la collection
 const dbName = "docs";
 const collectionName = "embeddings";
 const collection = client.db(dbName).collection(collectionName);
@@ -22,7 +23,7 @@ for (const fileName of fileNames) {
     chunkSize: 800, // Aumentato per catturare sezioni complete
     chunkOverlap: 100, // Più overlap per continuità
   });
-  
+
   const output = await splitter.createDocuments([document]);
 
   await MongoDBAtlasVectorSearch.fromDocuments(

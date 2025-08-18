@@ -1,0 +1,70 @@
+comune: Messina
+provincia: Messina
+regione: Sicilia
+last_updated: "2025-08-18"
+fonte: "https://www.messinaservizibenecomune.it/zone_cats/utenze-domestiche/"
+
+zone:
+  - zona: Nord
+    raccolta:
+      umido: [Lunedì, Giovedì, Sabato]
+      carta_e_cartone: [Martedì]
+      plastica_e_metalli: [Mercoledì]
+      vetro: [Lunedì]
+      indifferenziato: [Venerdì]
+
+  - zona: Centro
+    raccolta:
+      umido: [Lunedì, Giovedì, Sabato]
+      carta_e_cartone: [Venerdì]
+      plastica_e_metalli: [Mercoledì]
+      vetro: [Sabato]
+      indifferenziato: [Martedì]
+
+  - zona: Sud
+    raccolta:
+      umido: [Lunedì, Giovedì, Sabato]
+      carta_e_cartone: [Martedì]
+      plastica_e_metalli: [Venerdì]
+      vetro: [Lunedì]
+      indifferenziato: [Mercoledì]
+
+categorie:
+  umido:
+    contenitore: Marrone
+    conferimento: "Sacco biodegradabile nel mastello/carrellato con coperchio marrone o isole ecologiche (Pace, Autocentro, Calispera)"
+    ammessi: [Pane vecchio, Salviette di carta, Scarti di cucina e avanzi, Scarti di verdure e frutta, Fiori recisi e piante, Fondi di caffè, Alimenti avariati e gusci d'uovo, Lettiere compostabili]
+    rifiutati: [Prodotti non vegetali o animali, Filtri aspirapolvere, Pannolini, Legno trattato]
+
+  carta_e_cartone:
+    contenitore: Blu
+    conferimento: "Sfuso o sacco di carta nel mastello/carrello blu, oppure alle isole ecologiche (sacchi trasparenti)"
+    ammessi: [Carta grafica, Volantini e riviste, Scatole e contenitori, Tetrapak puliti e schiacciati]
+    rifiutati: [Contenitori pizza unti, Carta plastificata, Carta chimica e carbone, Carta parati e vetrata, Bicchieri/piatti carta, Cellophane, Carta forno]
+
+  plastica_e_metalli:
+    contenitore: Giallo
+    conferimento: "Sacchi trasparenti nel mastello/carrellato giallo, oppure isole ecologiche"
+    ammessi: [Flaconi, Bottiglie, Piatti e bicchieri, Grucce, Sacchetti merendine, Vaschette gelato, Pellicola alimenti, Buste spesa, Tubetti, Barattoli e lattine alluminio, Oggetti metallo, Polistirolo]
+    rifiutati: [Posate plastica, Oggetti vari, Ferro vecchio, Contenitori con acidi/colle/insetticidi/solventi]
+
+  vetro:
+    contenitore: Verde
+    conferimento: "Senza sacco nel mastello/carrellato verde, imballaggi puliti, oppure isole ecologiche"
+    ammessi: [Bottiglie, Barattoli, Flaconi, Vasetti]
+    rifiutati: [Lampadine, Neon, Specchi, Cristalli, Bicchieri, Vasi, Ceramica, Porcellana, Flebo]
+
+  indifferenziato:
+    contenitore: Grigio
+    conferimento: "Solo in sacchi trasparenti nel mastello/carrellato grigio"
+    ammessi: [Gomma, Carta oleata/plastificata, CD/VHS, Giocattoli plastica, Ceramica, Foto, Traverse animali, Pannolini, Flebo vuote, Sacche plastiche mediche, Contenitori farmaci vuoti]
+    rifiutati: [Materiali riciclabili, Imballaggi carta/plastica/metalli/vetro, Rifiuti tossici o nocivi]
+
+altri_rifiuti:
+  ingombranti_raee: "Ritiro su appuntamento al numero verde o conferimento diretto in isola ecologica"
+  abiti_usati: "Conferimento diretto alle isole ecologiche"
+  inerti: "Piccole demolizioni (max 0.6 mc) → isole ecologiche Pace, Pistunina, Spartà"
+  sfalci_potature: "Isola ecologica Pistunina, Spartà, Pace"
+  pannolini_pannoloni: "Raccolta aggiuntiva su richiesta al numero verde (oltre al venerdì)"
+  oli_vegetali: "Conferimento presso isole ecologiche"
+  pile_farmaci: "Conferimento presso farmacie o rivendite pile, o alle isole ecologiche"
