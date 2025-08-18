@@ -20,8 +20,8 @@ for (const fileName of fileNames) {
   console.log(`Vectorizing ${fileName}`);
 
   const splitter = RecursiveCharacterTextSplitter.fromLanguage("markdown", {
-    chunkSize: 800, // Aumentato per catturare sezioni complete
-    chunkOverlap: 100, // Più overlap per continuità
+    chunkSize: 300, // Aumentato per catturare sezioni complete
+    chunkOverlap: 50, // Più overlap per continuità
   });
 
   const output = await splitter.createDocuments([document]);
