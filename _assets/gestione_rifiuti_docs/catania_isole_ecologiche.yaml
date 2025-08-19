@@ -1,0 +1,64 @@
+comune: Catania
+tipo: isole_ecologiche_catania
+last_updated: "2025-08-18"
+fonte: "https://www.srrcataniametropolitana.it/differenziamocatania/"
+
+isole:
+  - nome: Aci Bonaccorsi
+    indirizzo: Via Giorgio Esquerra de Roxas snc
+  - nome: Aci Sant’Antonio
+    indirizzo: Via Sant’Onofrio snc
+  - nome: Belpasso
+    indirizzo: Via Camporotondo snc
+  - nome: Biancavilla
+    indirizzo: Via della Montagna snc
+  - nome: Camporotondo Etneo
+    indirizzo: Via Luigi Pirandello snc
+  - nome: Catania
+    indirizzo: Via Gianni Maria 40
+  - nome: Catania Tirreno
+    indirizzo: Viale Tirreno snc
+  - nome: Catania Borgo-Sanzio
+    indirizzo: Via Carmelo Patanè Romeo
+  - nome: Catania Librino
+    indirizzo: Viale Biagio Pecorino
+  - nome: Catania Monte Po
+    indirizzo: Via Fratelli Cairoli
+  - nome: Gravina di Catania
+    indirizzo: Via Pietro Gobetti snc
+  - nome: Mascalucia
+    indirizzo: Via Santa Margherita 38
+  - nome: Misterbianco
+    indirizzo: Via Giuseppe Garibaldi snc
+  - nome: Misterbianco (Serra-Poggio Lupo)
+    indirizzo: Via Puglia
+  - nome: Nicolosi
+    indirizzo: Via Stanislao Cannizzaro snc
+  - nome: Paternò
+    indirizzo: Via Giovanni Verga snc
+  - nome: Pedara
+    indirizzo: Via Teocrito snc
+  - nome: Ragalna
+    indirizzo: Via Santa Maria di Licodia snc
+  - nome: San Pietro Clarenza
+    indirizzo: Via Siracusa snc
+  - nome: Sant’Agata Li Battiati
+    indirizzo: Via Madonna di Fatima snc
+  - nome: Sant’Alfio
+    indirizzo: Via Etnea snc
+  - nome: Trecastagni
+    indirizzo: Via dello Sport 24
+  - nome: Valverde
+    indirizzo: Via Angelo Reitano snc
+  - nome: Viagrande
+    indirizzo: Via Poio 23
+  - nome: Zafferana Etnea
+    indirizzo: Via dello Sport 8
+
+rifiuti_ammessi:
+  - umido: [scarti alimentari, fondi di caffè, gusci d’uovo]
+  - carta_e_cartone: [carta sporca, tetra pak, cartoni bevande]
+  - plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette]
+  - vetro: [bottiglie, vasetti]
+  - indifferenziato: [materiali non riciclabili]
+  - speciali: [ingombranti, RAEE, abiti usati, inerti, sfalci/potature, pannolini, oli vegetali, pile e farmaci]

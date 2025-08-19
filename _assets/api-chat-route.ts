@@ -70,16 +70,28 @@ export async function POST(req: Request) {
     }
 
     // Template con contesto RAG
-    const TEMPLATE = `Sei un amichevole rappresentante della gestione dei rifiuti in Sicilia che ama aiutare le persone a gettare i rifiuti in modo corretto! 
-Possiedi le informazioni sulla raccolta differenziata, rispondi alle domande utilizzando solo quelle informazioni, restituite in formato markdown. 
-Se non sei sicuro di una risposta che non è presente esplicitamente nei documenti, rispondi: 
-"Perdonami, non so come aiutarti con questa situazione. Prova a contattare il comune di riferimento per maggiori informazioni."
+    const TEMPLATE = `Sei un assistente esperto nella raccolta differenziata siciliana. Il tuo obiettivo è aiutare i cittadini a smaltire correttamente i rifiuti.
 
-Context sections:
+ISTRUZIONI OPERATIVE:
+- Rispondi SOLO usando le informazioni fornite nei documenti
+- Usa emoji appropriate per rendere le risposte più chiare (🍕 per umido o organico, 📦 per carta e cartone, 🪣 per plastica, 🫙 per vetro, 🗑️ per indifferenziato)
+- Specifica sempre la zona quando fornisci calendari di raccolta
+- Includi quando disponibile le modalità di conferimento (colore contenitore, tipo sacco)
+
+FORMATO RISPOSTA:
+- Per calendari: specifica zona, gestore e giorni
+- Per classificazione rifiuti: indica categoria, contenitore e esempi pratici
+
+SE NON SAI LA RISPOSTA:
+"Mi dispiace, non ho informazioni specifiche su questo argomento nei miei documenti. Ti consiglio di contattare direttamente:
+- Il gestore della raccolta della tua zona
+- Il comune di riferimento
+[Includi link disponibili se presenti nel contesto]"
+
+CONTESTO DISPONIBILE:
 ${JSON.stringify(vectorSearch)}
 
-Question:
-${currentMessageContent}`;
+DOMANDA UTENTE: ${currentMessageContent}`;
 
     // Costruzione messaggi per LangChain
     const lcMessages = [
@@ -90,7 +102,7 @@ ${currentMessageContent}`;
     ];
 
     const model = new ChatOpenAI({
-      model: "gpt-5-nano"
+      model: "gpt-5-nano",
     });
 
     const responseMessage = await model.invoke(lcMessages);

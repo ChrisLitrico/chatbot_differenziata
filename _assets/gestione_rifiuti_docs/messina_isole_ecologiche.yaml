@@ -1,0 +1,26 @@
+comune: Messina
+tipo: isole_ecologiche_messina
+last_updated: "2025-08-18"
+fonte: "https://www.messinaservizibenecomune.it/zone_cats/utenze-domestiche/"
+
+isole:
+  - nome: Giampilieri
+    indirizzo: "Via Nazionale, 219, cap 98141"
+  - nome: Gravitelli
+    indirizzo: "Via Pietro Castelli, 200, cap 98122"
+  - nome: Pace
+    indirizzo: "via Torrente Pace, snc"
+  - nome: Pistunina
+    indirizzo: "Tor. Zafferia – via Comunale Km 0,150, cap 98127"
+  - nome: Spartà
+    indirizzo: "Strada Statale 113 Dir, 88, cap 98163"
+  - nome: Tremonti
+    indirizzo: "Salita Tremonti, cap 98121"
+
+rifiuti_ammessi:
+  - umido: [scarti alimentari, fondi di caffè, gusci d’uovo]
+  - carta_e_cartone: [carta pulita, giornali, libri, scatole, tetrapak]
+  - plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette, sacchetti]
+  - vetro: [bottiglie, barattoli, vasetti]
+  - indifferenziato: [materiali non riciclabili]
+  - speciali: [ingombranti, RAEE, abiti usati, inerti, sfalci/potature, pannolini, oli vegetali, pile e farmaci]

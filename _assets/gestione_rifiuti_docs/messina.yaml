@@ -1,33 +1,39 @@
-comune: Messina
-provincia: Messina
-regione: Sicilia
+comune: "Messina"
+provincia: "Messina"
+regione: "Sicilia"
 last_updated: "2025-08-18"
 fonte: "https://www.messinaservizibenecomune.it/zone_cats/utenze-domestiche/"
 
 zone:
-  - zona: Nord
+  - zona: "Messina Nord"
+    gestore_operativo_principale: "Messinaservizi Bene Comune spa"
+    pagina_contatti_gestore: "https://www.messinaservizibenecomune.it/contatti/"
     raccolta:
-      umido: [Lunedì, Giovedì, Sabato]
-      carta_e_cartone: [Martedì]
-      plastica_e_metalli: [Mercoledì]
-      vetro: [Lunedì]
-      indifferenziato: [Venerdì]
+      umido: [lunedì, giovedì, sabato]
+      carta: [martedì]
+      plastica_e_metalli: [mercoledì]
+      vetro: [lunedì]
+      indifferenziato: [venerdì]
 
-  - zona: Centro
+  - zona: "Messina Centro"
+    gestore_operativo_principale: "Messinaservizi Bene Comune spa"
+    pagina_contatti_gestore: "https://www.messinaservizibenecomune.it/contatti/"
     raccolta:
-      umido: [Lunedì, Giovedì, Sabato]
-      carta_e_cartone: [Venerdì]
-      plastica_e_metalli: [Mercoledì]
-      vetro: [Sabato]
-      indifferenziato: [Martedì]
+      umido: [lunedì, giovedì, sabato]
+      carta: [venerdì]
+      plastica_e_metalli: [mercoledì]
+      vetro: [sabato]
+      indifferenziato: [martedì]
 
-  - zona: Sud
+  - zona: "Messina Sud"
+    gestore_operativo_principale: "Messinaservizi Bene Comune spa"
+    pagina_contatti_gestore: "https://www.messinaservizibenecomune.it/contatti/"
     raccolta:
-      umido: [Lunedì, Giovedì, Sabato]
-      carta_e_cartone: [Martedì]
-      plastica_e_metalli: [Venerdì]
-      vetro: [Lunedì]
-      indifferenziato: [Mercoledì]
+      umido: [lunedì, giovedì, sabato]
+      carta: [martedì]
+      plastica_e_metalli: [venerdì]
+      vetro: [lunedì]
+      indifferenziato: [mercoledì]
 
 categorie:
   umido:
@@ -36,7 +42,7 @@ categorie:
     ammessi: [Pane vecchio, Salviette di carta, Scarti di cucina e avanzi, Scarti di verdure e frutta, Fiori recisi e piante, Fondi di caffè, Alimenti avariati e gusci d'uovo, Lettiere compostabili]
     rifiutati: [Prodotti non vegetali o animali, Filtri aspirapolvere, Pannolini, Legno trattato]
 
-  carta_e_cartone:
+  carta:
     contenitore: Blu
     conferimento: "Sfuso o sacco di carta nel mastello/carrello blu, oppure alle isole ecologiche (sacchi trasparenti)"
     ammessi: [Carta grafica, Volantini e riviste, Scatole e contenitori, Tetrapak puliti e schiacciati]
@@ -61,10 +67,17 @@ categorie:
     rifiutati: [Materiali riciclabili, Imballaggi carta/plastica/metalli/vetro, Rifiuti tossici o nocivi]
 
 altri_rifiuti:
-  ingombranti_raee: "Ritiro su appuntamento al numero verde o conferimento diretto in isola ecologica"
-  abiti_usati: "Conferimento diretto alle isole ecologiche"
-  inerti: "Piccole demolizioni (max 0.6 mc) → isole ecologiche Pace, Pistunina, Spartà"
-  sfalci_potature: "Isola ecologica Pistunina, Spartà, Pace"
-  pannolini_pannoloni: "Raccolta aggiuntiva su richiesta al numero verde (oltre al venerdì)"
-  oli_vegetali: "Conferimento presso isole ecologiche"
-  pile_farmaci: "Conferimento presso farmacie o rivendite pile, o alle isole ecologiche"
+  ingombranti_raee:
+    modalità: "Ritiro su strada o conferimento diretto alle isole ecologiche"
+  abiti_usati_pellame:
+    modalità: "Conferimento diretto alle isole ecologiche"
+  inerti:
+    modalità: "Piccole demolizioni alle isole ecologiche"
+  sfalci_potature:
+    modalità: "Conferimento alle isole ecologiche"
+  pannolini_pannoloni:
+    modalità: "Raccolta su richiesta o venerdì con indifferenziato"
+  oli_vegetali:
+    modalità: "Conferimento presso isole ecologiche"
+  pile_farmaci:
+    modalità: "Conferimento presso farmacie o isole ecologiche"
