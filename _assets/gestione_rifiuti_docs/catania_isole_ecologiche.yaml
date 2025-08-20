@@ -1,58 +1,84 @@
 comune: Catania
-tipo: isole_ecologiche_catania
+provincia: Catania
+tipo: isole_ecologiche
 last_updated: "2025-08-18"
 fonte: "https://www.srrcataniametropolitana.it/differenziamocatania/"
 
 isole:
-  - nome: Aci Bonaccorsi
+  - nome: Catania - Aci Bonaccorsi
+    comune_riferimento: Catania
     indirizzo: Via Giorgio Esquerra de Roxas snc
-  - nome: Aci Sant’Antonio
+  - nome: Catania - Aci Sant’Antonio
+    comune_riferimento: Catania
     indirizzo: Via Sant’Onofrio snc
-  - nome: Belpasso
+  - nome: Catania - Belpasso
+    comune_riferimento: Catania
     indirizzo: Via Camporotondo snc
-  - nome: Biancavilla
+  - nome: Catania - Biancavilla
+    comune_riferimento: Catania
     indirizzo: Via della Montagna snc
-  - nome: Camporotondo Etneo
+  - nome: Catania - Camporotondo Etneo
+    comune_riferimento: Catania
     indirizzo: Via Luigi Pirandello snc
-  - nome: Catania
+  - nome: Catania - Centro
+    comune_riferimento: Catania
     indirizzo: Via Gianni Maria 40
-  - nome: Catania Tirreno
+  - nome: Catania - Tirreno
+    comune_riferimento: Catania
     indirizzo: Viale Tirreno snc
-  - nome: Catania Borgo-Sanzio
+  - nome: Catania - Borgo-Sanzio
+    comune_riferimento: Catania
     indirizzo: Via Carmelo Patanè Romeo
-  - nome: Catania Librino
+  - nome: Catania - Librino
+    comune_riferimento: Catania
     indirizzo: Viale Biagio Pecorino
-  - nome: Catania Monte Po
+  - nome: Catania - Monte Po
+    comune_riferimento: Catania
     indirizzo: Via Fratelli Cairoli
-  - nome: Gravina di Catania
+  - nome: Catania - Gravina
+    comune_riferimento: Catania
     indirizzo: Via Pietro Gobetti snc
-  - nome: Mascalucia
+  - nome: Catania - Mascalucia
+    comune_riferimento: Catania
     indirizzo: Via Santa Margherita 38
-  - nome: Misterbianco
+  - nome: Catania - Misterbianco
+    comune_riferimento: Catania
     indirizzo: Via Giuseppe Garibaldi snc
-  - nome: Misterbianco (Serra-Poggio Lupo)
+  - nome: Catania - Misterbianco (Serra-Poggio Lupo)
+    comune_riferimento: Catania
     indirizzo: Via Puglia
-  - nome: Nicolosi
+  - nome: Catania - Nicolosi
+    comune_riferimento: Catania
     indirizzo: Via Stanislao Cannizzaro snc
-  - nome: Paternò
+  - nome: Catania - Paternò
+    comune_riferimento: Catania
     indirizzo: Via Giovanni Verga snc
-  - nome: Pedara
+  - nome: Catania - Pedara
+    comune_riferimento: Catania
     indirizzo: Via Teocrito snc
-  - nome: Ragalna
+  - nome: Catania - Ragalna
+    comune_riferimento: Catania
     indirizzo: Via Santa Maria di Licodia snc
-  - nome: San Pietro Clarenza
+  - nome: Catania - San Pietro Clarenza
+    comune_riferimento: Catania
     indirizzo: Via Siracusa snc
-  - nome: Sant’Agata Li Battiati
+  - nome: Catania - Sant’Agata Li Battiati
+    comune_riferimento: Catania
     indirizzo: Via Madonna di Fatima snc
-  - nome: Sant’Alfio
+  - nome: Catania - Sant’Alfio
+    comune_riferimento: Catania
     indirizzo: Via Etnea snc
-  - nome: Trecastagni
+  - nome: Catania - Trecastagni
+    comune_riferimento: Catania
     indirizzo: Via dello Sport 24
-  - nome: Valverde
+  - nome: Catania - Valverde
+    comune_riferimento: Catania
     indirizzo: Via Angelo Reitano snc
-  - nome: Viagrande
+  - nome: Catania - Viagrande
+    comune_riferimento: Catania
     indirizzo: Via Poio 23
-  - nome: Zafferana Etnea
+  - nome: Catania - Zafferana Etnea
+    comune_riferimento: Catania
     indirizzo: Via dello Sport 8
 
 rifiuti_ammessi:
