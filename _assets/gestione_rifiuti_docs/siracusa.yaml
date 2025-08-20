@@ -1,0 +1,152 @@
+comune: "Siracusa"
+provincia: "Siracusa"
+regione: "Sicilia"
+last_updated: "2025-08-20"
+fonte: "https://www.comune.siracusa.it/"
+
+orari_conferimento: "I materiali vanno esposti dalle ore 20:00 e non oltre le ore 05:00 del giorno di raccolta."
+
+zone:
+  - zona: "Siracusa Unico"
+    gestore: "Tekra srl"
+    pagina_contatti_gestore: "https://www.comune.siracusa.it/"
+    raccolta:
+      umido: [lunedì, mercoledì, venerdì]
+      carta: [sabato]
+      plastica_e_metalli: [martedì]
+      vetro: [sabato]
+      indifferenziato: [giovedì]
+
+categorie:
+  umido:
+    contenitore: Marrone
+    conferimento: "Sacchi biodegradabili e compostabili, contenitori o fascine"
+    ammessi:
+      [
+        Scarti alimentari,
+        Scarti organici,
+        Fondi di caffè e tè,
+        Gusci d'uovo,
+        Salviette compostabili,
+        Fiori recisi e piante,
+        Lettiere compostabili,
+      ]
+    rifiutati:
+      [
+        Materiali non organici,
+        Pannolini,
+        Legno trattato,
+        Liquidi,
+        Polveri o filtri di aspirazione,
+        Contenitori per cibi,
+        Mozziconi di sigaretta,
+        Plastica biodegradabile ma non compostabile,
+      ]
+
+  carta:
+    contenitore: Blu
+    conferimento: "Fascine, contenitori o sacchi di carta"
+    ammessi:
+      [
+        Carta grafica,
+        Giornali,
+        Libri,
+        Volantini e riviste,
+        Scatole e contenitori,
+        Tetrapak puliti e schiacciati,
+      ]
+    rifiutati:
+      [
+        Carta sporca/unta,
+        Carta plastificata,
+        Carta chimica e carbone,
+        Stoviglie di carta,
+        Cellophane,
+        Carta forno,
+      ]
+
+  plastica_e_metalli:
+    contenitore: Giallo
+    conferimento: "Sacchi trasparenti o contenitori"
+    ammessi:
+      [
+        Bottiglie,
+        Flaconi,
+        Vaschette,
+        Lattine,
+        Sacchetti,
+        Grucce,
+        Barattoli e lattine alluminio,
+        Pellicola alimenti,
+        Buste spesa,
+        Tubetti,
+      ]
+    rifiutati:
+      [
+        Posate monouso,
+        Oggetti non da imballaggio,
+        Ferro vecchio,
+        Bacinelle,
+        Pennarelli,
+        Occhiali,
+        Siringhe,
+        Contenitori con sostanze chimiche,
+      ]
+
+  vetro:
+    contenitore: Verde
+    conferimento: "Contenitori o sfuso, imballaggi puliti"
+    ammessi: [Bottiglie, Vasetti, Barattoli]
+    rifiutati:
+      [
+        Lampadine,
+        Specchi,
+        Ceramiche,
+        Flebo,
+        Vetroceramica,
+        Piatti e tazzine,
+        Bicchieri,
+        Bottiglie in cristallo,
+        Neon,
+        Porcellana,
+      ]
+
+  indifferenziato:
+    contenitore: Grigio
+    conferimento: "Sacchi o contenitori"
+    ammessi:
+      [
+        Gomma,
+        Carta oleata/plastificata,
+        CD/DVD/VHS,
+        Giocattoli plastica,
+        Pannolini,
+        Flebo vuote,
+        Ceramica,
+        Traverse animali,
+        Contenitori farmaci vuoti,
+        Posate plastica,
+        Bicchieri,
+        Siringhe,
+      ]
+    rifiutati:
+      [
+        Materiali riciclabili,
+        Rifiuti tossici,
+        Rifiuti ingombranti,
+        Imballaggi carta/plastica/metalli/vetro,
+      ]
+
+altri_rifiuti:
+  ingombranti_raee:
+    modalità: "Conferimento diretto alle isole ecologiche"
+  abiti_usati_pellame:
+    modalità: "Conferimento diretto alle isole ecologiche"
+  inerti:
+    modalità: "Conferimento diretto alle isole ecologiche"
+  sfalci_potature:
+    modalità: "Conferimento alle isole ecologiche"
+  oli_vegetali:
+    modalità: "Conferimento presso isole ecologiche"
+  pile_farmaci:
+    modalità: "Conferimento presso farmacie, rivenditori o isole ecologiche"

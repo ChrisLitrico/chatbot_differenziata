@@ -1,0 +1,70 @@
+comune: Siracusa
+provincia: Siracusa
+tipo: isole_ecologiche
+last_updated: "2025-08-20"
+fonte: "https://static-www.comune.siracusa.it/wp-content/uploads/2025/02/Ecoisole.pdf"
+
+servizio:
+  data_attivazione: "2025-02-05"
+  stato: "sperimentale"
+  videosorveglianza: true
+  accesso: "tessera sanitaria utenti domestici TARI"
+
+orari:
+  rifiuti_differenziati: "24h/24"
+  indifferenziato: "una volta a settimana"
+
+modalita_conferimento:
+  plastica: "sacchi semitrasparenti"
+  vetro: "modalità sfusa"
+  carta: "modalità sfusa o buste di carta"
+  piccoli_raee: "modalità sfusa"
+  indifferenziato: "sacchi semitrasparenti"
+  note: "è vietato l'uso dei sacchi neri"
+
+controllo_conferimenti:
+  portale_web: "https://siracusa.e-portal.it/rd"
+  app_mobile: "WAPER"
+
+scontistica:
+  applicabile: true
+  riferimento: "art. 22 del Regolamento TARI"
+  esclusioni: "RAEE (sconto sui pezzi, non sul peso)"
+
+isole:
+  - nome: Augusta
+    comune_riferimento: Siracusa
+    indirizzo: "Via Augusta"
+    numero_ecoisole: 2
+  - nome: Cassibile
+    comune_riferimento: Siracusa
+    indirizzo: "Via Salvo D'Acquisto, 19"
+    numero_ecoisole: 1
+  - nome: Belvedere
+    comune_riferimento: Siracusa
+    indirizzo: "Via degli Ulivi, 93"
+    numero_ecoisole: 1
+  - nome: Italia
+    comune_riferimento: Siracusa
+    indirizzo: "Via Italia, 105"
+    numero_ecoisole: 2
+  - nome: Elorina (uffici mobilità)
+    comune_riferimento: Siracusa
+    indirizzo: "Via degli Ulivi, 93"
+    numero_ecoisole: 1
+  - nome: Elorina (ingresso parcheggio)
+    comune_riferimento: Siracusa
+    indirizzo: "Via degli Ulivi, 93"
+    numero_ecoisole: 1
+  - nome: Epipoli
+    comune_riferimento: Siracusa
+    indirizzo: "Via Monte Rosa, 5"
+    numero_ecoisole: 1
+
+rifiuti_ammessi:
+  - umido: [scarti alimentari, fondi di caffè, gusci d'uovo]
+  - carta_e_cartone: [carta pulita, giornali, libri, scatole, tetrapak]
+  - plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette, sacchetti]
+  - vetro: [bottiglie, barattoli, vasetti]
+  - indifferenziato: [materiali non riciclabili]
+  - speciali: [rifiuti riciclabili in grandi quantità, oggetti ingombranti, residui delle potature, apparecchi elettronici, RAEE, farmaci, pile, oli vegetali esausti, abiti usati]
