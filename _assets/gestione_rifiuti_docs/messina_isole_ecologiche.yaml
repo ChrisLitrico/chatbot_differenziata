@@ -7,21 +7,26 @@ fonte: "https://www.messinaservizibenecomune.it/zone_cats/utenze-domestiche/"
 isole:
   - nome: Giampilieri
     comune_riferimento: Messina
+    orari_conferimento: martedì, giovedì, venerdì, sabato, dalle 7:00 alle 13:00
     indirizzo: "Via Nazionale, 219, cap 98141"
   - nome: Gravitelli
     comune_riferimento: Messina
+    orari_conferimento: Dal lunedì al sabato, dalle 7:00 alle 13:00
     indirizzo: "Via Pietro Castelli, 200, cap 98122"
   - nome: Pace
     comune_riferimento: Messina
     indirizzo: "via Torrente Pace, snc"
   - nome: Pistunina
     comune_riferimento: Messina
+    orari_conferimento: Dal lunedì al sabato, dalle 7:00 alle 13:00
     indirizzo: "Tor. Zafferia – via Comunale Km 0,150, cap 98127"
   - nome: Spartà
     comune_riferimento: Messina
+    orari_conferimento: Dal lunedì al sabato, dalle 7:00 alle 13:00
     indirizzo: "Strada Statale 113 Dir, 88, cap 98163"
   - nome: Tremonti
     comune_riferimento: Messina
+    orari_conferimento: Dal lunedì al sabato, dalle 7:00 alle 13:00
     indirizzo: "Salita Tremonti, cap 98121"
 
 rifiuti_ammessi:
@@ -30,4 +35,14 @@ rifiuti_ammessi:
   - plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette, sacchetti]
   - vetro: [bottiglie, barattoli, vasetti]
   - indifferenziato: [materiali non riciclabili]
-  - speciali: [ingombranti, RAEE, abiti usati, inerti, sfalci/potature, pannolini, oli vegetali, pile e farmaci]
+  - speciali:
+      [
+        ingombranti,
+        RAEE,
+        abiti usati,
+        inerti,
+        sfalci/potature,
+        pannolini,
+        oli vegetali,
+        pile e farmaci,
+      ]
