@@ -24,9 +24,4 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/ccr/)
 
 ## Rifiuti ammessi presso le isole ecologiche di Ragusa
 
-- Umido/Organico: scarti alimentari, fondi di caffè, gusci d'uovo, salviette compostabili
-- Carta e Cartone: carta pulita, giornali, libri, scatole, tetrapak
-- Plastica e Metalli: bottiglie, flaconi, lattine, vaschette, sacchetti, grucce
-- Vetro: bottiglie, barattoli, vasetti
-- Indifferenziato: materiali non riciclabili
-- Rifiuti speciali: oggetti ingombranti, residui delle potature, apparecchi elettronici (RAEE), farmaci, pile, oli vegetali esausti, abiti usati
+- Rifiuti speciali: grandi quantità di rifiuti reciclabili, oggetti ingombranti, residui delle potature, apparecchi elettronici (RAEE), farmaci, pile, oli vegetali esausti, abiti usati

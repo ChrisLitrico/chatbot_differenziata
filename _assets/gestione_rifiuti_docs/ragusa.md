@@ -14,7 +14,7 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-freque
 
 ## 🗑️ Calendario raccolta per zona e periodo
 
-### Zona Ragusa Centro - Periodo estivo (Giugno - Settembre)
+### Zona Ragusa - Periodo estivo (Giugno - Settembre)
 - 🍕 Umido/Organico: Lunedì, Mercoledì, Sabato
 - 📦 Carta: Giovedì
 - 🪣 Plastica e lattine: Martedì
@@ -22,7 +22,7 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-freque
 - 🗑️ Indifferenziato: Venerdì
 - 👚 Abiti usati: Primo sabato del mese
 
-### Zona Ragusa Centro - Periodo invernale (Ottobre - Maggio)
+### Zona Ragusa - Periodo invernale (Ottobre - Maggio)
 - 🍕 Umido/Organico: Lunedì, Mercoledì, Sabato
 - 📦 Carta: Giovedì
 - 🪣 Plastica e lattine: Martedì
@@ -63,7 +63,7 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-freque
 ❌ Non si può gettare: posate monouso, oggetti non da imballaggio, ferro vecchio  
 
 ### 🫙 Vetro
-✅ Si può gettare: bottiglie, vasetti, barattoli  
+✅ Si può gettare: bottiglie di vetro, vasetti, barattoli  
 ❌ Non si può gettare: lampadine, specchi, ceramiche, flebo  
 
 ### 🗑️ Indifferenziato

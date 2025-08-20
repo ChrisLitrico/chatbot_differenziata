@@ -16,7 +16,7 @@ orari:
       orario: "07:00 - 17:00"
 
 isole:
-  - nome: Ragusa Centro
+  - nome: Ragusa
     comune_riferimento: Ragusa
     indirizzo: "zona artigianale di via Paestum"
     zona: "Ragusa"
@@ -26,9 +26,4 @@ isole:
     zona: "Marina di Ragusa"
 
 rifiuti_ammessi:
-  - umido: [scarti alimentari, fondi di caffè, gusci d'uovo, salviette compostabili]
-  - carta_e_cartone: [carta pulita, giornali, libri, scatole, tetrapak]
-  - plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette, sacchetti, grucce]
-  - vetro: [bottiglie, barattoli, vasetti]
-  - indifferenziato: [materiali non riciclabili]
-  - speciali: [oggetti ingombranti, residui delle potature, apparecchi elettronici, RAEE, farmaci, pile, oli vegetali esausti, abiti usati]
+  - speciali: [rifiuti reciclabili in grandi quantità, oggetti ingombranti, residui delle potature, apparecchi elettronici, RAEE, farmaci, pile, oli vegetali esausti, abiti usati]
