@@ -5,22 +5,22 @@ last_updated: "2025-08-18"
 fonte: "https://www.messinaservizibenecomune.it/zone_cats/utenze-domestiche/"
 
 isole:
-  - nome: Messina - Giampilieri
+  - nome: Giampilieri
     comune_riferimento: Messina
     indirizzo: "Via Nazionale, 219, cap 98141"
-  - nome: Messina - Gravitelli
+  - nome: Gravitelli
     comune_riferimento: Messina
     indirizzo: "Via Pietro Castelli, 200, cap 98122"
-  - nome: Messina - Pace
+  - nome: Pace
     comune_riferimento: Messina
     indirizzo: "via Torrente Pace, snc"
-  - nome: Messina - Pistunina
+  - nome: Pistunina
     comune_riferimento: Messina
     indirizzo: "Tor. Zafferia – via Comunale Km 0,150, cap 98127"
-  - nome: Messina - Spartà
+  - nome: Spartà
     comune_riferimento: Messina
     indirizzo: "Strada Statale 113 Dir, 88, cap 98163"
-  - nome: Messina - Tremonti
+  - nome: Tremonti
     comune_riferimento: Messina
     indirizzo: "Salita Tremonti, cap 98121"
 

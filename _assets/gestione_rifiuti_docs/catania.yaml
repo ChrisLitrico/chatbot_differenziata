@@ -4,11 +4,11 @@ regione: "Sicilia"
 last_updated: "2025-08-18"
 fonte: "https://www.srrcataniametropolitana.it/differenziamocatania/"
 
-orari_conferimento: "Entro le 7:00 del mattino del giorno di raccolta"
+orari_conferimento: "I materiali vanno esposti in prossimità del proprio numero civico dalle ore 22.00 alle ore 5.00 della sera precedente del giorno di raccolta."
 
 zone:
   - zona: "Catania Nord"
-    gestore_operativo_principale: "Supereco"
+    gestore: "Supereco"
     pagina_contatti_gestore: "https://www.superecosrl.com/public/comune-di-catania"
     raccolta:
       umido: [martedì, giovedì, sabato]
@@ -18,7 +18,7 @@ zone:
       indifferenziato: [venerdì]
 
   - zona: "Catania Centro"
-    gestore_operativo_principale: "Gema spa"
+    gestore: "Gema spa"
     pagina_contatti_gestore: "https://www.gema-spa.com/contatti/"
     raccolta:
       umido: [lunedì, mercoledì, venerdì]
@@ -28,7 +28,7 @@ zone:
       indifferenziato: [giovedì]
 
   - zona: "Catania Sud"
-    gestore_operativo_principale: "Ecocar"
+    gestore: "Ecocar"
     pagina_contatti_gestore: "https://www.ecocarprovinciactnord.it/contatti/"
     raccolta:
       umido: [martedì, giovedì, sabato]
@@ -40,14 +40,14 @@ zone:
 categorie:
   umido:
     contenitore: marrone
-    conferimento: 
+    conferimento:
       - "Sacco biodegradabile nel mastello/carrellato con coperchio marrone"
       - "Isole ecologiche"
-    ammessi: 
+    ammessi:
       - "Scarti alimentari: avanzi di cucina cotti o crudi, scarti di frutta e verdura, residui di pane"
       - "Organici: gusci di uova e ossa, fondi di caffè e filtri, avanzi di carne, pesce, salumi"
       - "Altri: segatura e truccioli, fazzoletti di carta unti, cenere"
-    rifiutati: 
+    rifiutati:
       - "Stoviglie: piatti e bicchieri di carta"
       - "Speciali: carcasse di animali, olio di frittura"
       - "Igienici: pannolini ed assorbenti"
@@ -55,54 +55,54 @@ categorie:
 
   carta:
     contenitore: blu
-    conferimento: 
+    conferimento:
       - "Sfuso o in sacco di carta nel mastello/carrello con coperchio blu"
       - "Isole ecologiche in sacchi trasparenti"
       - "Cartoni per bevande: puliti e schiacciati"
-    ammessi: 
+    ammessi:
       - "Imballaggi: sacchetti di carta, scatole, imballaggi di cartone e cartoncino"
       - "Contenitori: tetra pak, cartoni per bevande e prodotti alimentari"
       - "Carta pulita: carta da pacchi, giornali, riviste, quaderni"
-    rifiutati: 
+    rifiutati:
       - "Carta sporca: fazzolettini e tovaglioli usati, cartoni della pizza sporchi"
       - "Carta trattata: scontrini fiscali di carta termica, carta chimica per fax"
       - "Carta speciale: oleata, plastificata"
 
   plastica_e_metalli:
     contenitore: giallo
-    conferimento: 
+    conferimento:
       - "Sacchi trasparenti nel mastello/carrellato con coperchio giallo"
       - "Isole ecologiche in sacchi trasparenti"
-    ammessi: 
+    ammessi:
       - "Contenitori plastica: bottiglie e flaconi, buste e pellicole, vaschette e vasetti per yogurt"
       - "Stoviglie plastica: piatti e bicchieri (non posate)"
       - "Metalli: lattine e vaschette in alluminio, fogli sottili, scatolette, barattoli e contenitori metallici"
-    rifiutati: 
+    rifiutati:
       - "Plastica non imballaggio: posate, giocattoli, penne e pennarelli, spazzolini da denti"
       - "Metalli grandi: oggetti in metallo, pentole e posate, fili di ferro"
 
   vetro:
     contenitore: verde
-    conferimento: 
+    conferimento:
       - "Senza sacco nel mastello/carrellato con coperchio verde"
       - "Imballaggi puliti"
       - "Isole ecologiche in sacchi trasparenti"
-    ammessi: 
+    ammessi:
       - "Contenitori: bottiglie e vasetti"
-    rifiutati: 
+    rifiutati:
       - "Illuminazione: lampadine e lampade al neon"
       - "Oggetti: specchi, lastre vetro"
       - "Ceramiche: oggetti in ceramica e porcellana"
 
   indifferenziato:
     contenitore: grigio
-    conferimento: 
+    conferimento:
       - "Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio"
-    ammessi: 
+    ammessi:
       - "Materiali vari: carta plastificata, gomma"
       - "Supporti: CD, blu-ray, musicassette, VHS"
       - "Ceramiche: ceramica, porcellana, terracotta"
-    rifiutati: 
+    rifiutati:
       - "Materiali riciclabili"
       - "Speciali: pile e farmaci, materiale edile, batterie auto"
       - "Organici: sfalci di potatura"
@@ -111,13 +111,13 @@ categorie:
 
   residuale:
     contenitore: grigio
-    conferimento: 
+    conferimento:
       - "Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio"
-    ammessi: 
+    ammessi:
       - "Materiali vari: carta plastificata, gomma"
       - "Supporti: CD, blu-ray, musicassette, VHS"
       - "Ceramiche: ceramica, porcellana, terracotta"
-    rifiutati: 
+    rifiutati:
       - "Materiali riciclabili"
       - "Speciali: pile e farmaci, materiale edile, batterie auto"
       - "Organici: sfalci di potatura"
@@ -125,29 +125,27 @@ categorie:
       - "Pericolosi: materiali tossici o pericolosi"
 
 altri_rifiuti:
-  ingombranti_raee: 
+  ingombranti_raee:
     modalità: "Ritiro su strada presso il proprio civico previa prenotazione al numero verde o conferimento diretto alle isole ecologiche"
     esempi: "Suppellettili ed elettrodomestici"
-  
-  abiti_usati_pellame: 
+
+  abiti_usati_pellame:
     modalità: "Conferimento diretto alle isole ecologiche negli orari di apertura"
     esempi: "Abiti usati, stracci, scarpe, borse, pellame"
-    
-  inerti: 
+
+  inerti:
     modalità: "Piccole demolizioni (max 0.6 mc) alle isole ecologiche negli orari di apertura"
-    isole: [pace, pistunina, spartà]
-    
-  sfalci_potature: 
+
+  sfalci_potature:
     modalità: "Conferimento alle isole ecologiche negli orari di apertura"
-    isole: [pistunina, spartà, pace]
-    
-  pannolini_pannoloni: 
+
+  pannolini_pannoloni:
     modalità: "Raccolta anche il venerdì su richiesta dell'utente al numero verde"
     esempi: "Pannolini, pannoloni e traverse"
-    
-  oli_vegetali: 
+
+  oli_vegetali:
     modalità: "Conferimento presso isole ecologiche"
     note: "Solo oli vegetali di provenienza domestica"
-    
-  pile_farmaci: 
+
+  pile_farmaci:
     modalità: "Conferimento presso farmacie, rivendite pile o isole ecologiche"

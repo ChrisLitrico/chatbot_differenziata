@@ -1,0 +1,182 @@
+comune: "Ragusa"
+provincia: "Ragusa"
+regione: "Sicilia"
+last_updated: "2025-08-20"
+fonte: "https://ragusaraccolta.it/calendario-frequenze/"
+
+orari_conferimento: "I materiali vanno esposti dalle ore 20:00 alle ore 22:00 della sera precedente il giorno di raccolta."
+
+zone:
+  - zona: "Ragusa Centro"
+    gestore: "Impresa ecologica Busso Sebastiano"
+    pagina_contatti_gestore: "https://ragusaraccolta.it/"
+    periodi:
+      estivo:
+        mesi: ["giugno", "luglio", "agosto", "settembre"]
+        raccolta:
+          umido: [lunedì, mercoledì, sabato]
+          carta: [giovedì]
+          plastica_e_metalli: [martedì]
+          vetro: [mercoledì]
+          indifferenziato: [venerdì]
+          abiti_usati: ["primo sabato del mese"]
+      invernale:
+        mesi: ["ottobre", "novembre", "dicembre", "gennaio", "febbraio", "marzo", "aprile", "maggio"]
+        raccolta:
+          umido: [lunedì, mercoledì, sabato]
+          carta: [giovedì]
+          plastica_e_metalli: [martedì]
+          vetro: [mercoledì]
+          indifferenziato: [venerdì]
+          abiti_usati: ["primo sabato del mese"]
+
+  - zona: "Marina di Ragusa"
+    gestore: "Impresa ecologica Busso Sebastiano"
+    pagina_contatti_gestore: "https://ragusaraccolta.it/"
+    periodi:
+      estivo:
+        mesi: ["giugno", "luglio", "agosto", "settembre"]
+        raccolta:
+          umido: [lunedì, mercoledì, sabato]
+          carta: [giovedì]
+          plastica_e_metalli: [martedì, sabato]
+          vetro: [mercoledì]
+          indifferenziato: [lunedì]
+          abiti_usati: ["primo sabato del mese"]
+      invernale:
+        mesi: ["ottobre", "novembre", "dicembre", "gennaio", "febbraio", "marzo", "aprile", "maggio"]
+        raccolta:
+          umido: [lunedì, mercoledì, sabato]
+          carta: [giovedì]
+          plastica_e_metalli: [martedì]
+          vetro: [mercoledì]
+          indifferenziato: [venerdì]
+          abiti_usati: ["primo sabato del mese"]
+
+categorie:
+  umido:
+    contenitore: Marrone
+    conferimento: "Sacchi biodegradabili nel contenitore marrone o isole ecologiche"
+    ammessi:
+      [
+        Pane vecchio,
+        Salviette compostabili,
+        Scarti di cucina e avanzi,
+        Scarti di verdure e frutta,
+        Fiori recisi e piante,
+        Fondi di caffè,
+        Alimenti avariati e gusci d'uovo,
+        Lettiere compostabili,
+      ]
+    rifiutati:
+      [
+        Prodotti non vegetali o animali,
+        Filtri aspirapolvere,
+        Pannolini,
+        Legno trattato,
+      ]
+
+  carta:
+    contenitore: Blu
+    conferimento: "Sfuso o in sacchi di carta nel contenitore blu o isole ecologiche"
+    ammessi:
+      [
+        Carta grafica,
+        Volantini e riviste,
+        Scatole e contenitori,
+        Tetrapak puliti e schiacciati,
+        Giornali e libri,
+      ]
+    rifiutati:
+      [
+        Contenitori pizza unti,
+        Carta plastificata,
+        Carta chimica e carbone,
+        Carta parati e vetrata,
+        Bicchieri/piatti carta,
+        Cellophane,
+        Carta forno,
+      ]
+
+  plastica_e_metalli:
+    contenitore: Giallo
+    conferimento: "Sacchi trasparenti nel contenitore giallo o isole ecologiche"
+    ammessi:
+      [
+        Flaconi,
+        Bottiglie,
+        Piatti e bicchieri,
+        Grucce,
+        Sacchetti merendine,
+        Vaschette gelato,
+        Pellicola alimenti,
+        Buste spesa,
+        Tubetti,
+        Barattoli e lattine alluminio,
+        Oggetti metallo,
+        Polistirolo,
+      ]
+    rifiutati:
+      [
+        Posate plastica,
+        Oggetti vari non da imballaggio,
+        Ferro vecchio,
+        Contenitori con acidi/colle/insetticidi/solventi,
+      ]
+
+  vetro:
+    contenitore: Verde
+    conferimento: "Senza sacco nel contenitore verde, imballaggi puliti, o isole ecologiche"
+    ammessi: [Bottiglie, Barattoli, Flaconi, Vasetti]
+    rifiutati:
+      [
+        Lampadine,
+        Neon,
+        Specchi,
+        Cristalli,
+        Bicchieri,
+        Vasi,
+        Ceramica,
+        Porcellana,
+        Flebo,
+      ]
+
+  indifferenziato:
+    contenitore: Grigio
+    conferimento: "Solo in sacchi trasparenti nel contenitore grigio"
+    ammessi:
+      [
+        Gomma,
+        Carta oleata/plastificata,
+        CD/VHS/DVD,
+        Giocattoli plastica,
+        Ceramica,
+        Foto,
+        Traverse animali,
+        Pannolini,
+        Flebo vuote,
+        Sacche plastiche mediche,
+        Contenitori farmaci vuoti,
+      ]
+    rifiutati:
+      [
+        Materiali riciclabili,
+        Imballaggi carta/plastica/metalli/vetro,
+        Rifiuti tossici o nocivi,
+      ]
+
+altri_rifiuti:
+  ingombranti_raee:
+    modalità: "Conferimento diretto alle isole ecologiche"
+  abiti_usati_pellame:
+    modalità: "Primo sabato del mese o conferimento diretto alle isole ecologiche"
+  inerti:
+    modalità: "Piccole demolizioni alle isole ecologiche"
+  sfalci_potature:
+    modalità: "Conferimento alle isole ecologiche"
+  pannolini_pannoloni:
+    modalità: "Con indifferenziato nei giorni previsti"
+  oli_vegetali:
+    modalità: "Conferimento presso isole ecologiche"
+  pile_farmaci:
+    modalità: "Conferimento presso farmacie o isole ecologiche"

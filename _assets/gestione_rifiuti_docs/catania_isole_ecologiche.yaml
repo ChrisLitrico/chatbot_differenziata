@@ -5,79 +5,79 @@ last_updated: "2025-08-18"
 fonte: "https://www.srrcataniametropolitana.it/differenziamocatania/"
 
 isole:
-  - nome: Catania - Aci Bonaccorsi
+  - nome: Aci Bonaccorsi
     comune_riferimento: Catania
     indirizzo: Via Giorgio Esquerra de Roxas snc
-  - nome: Catania - Aci Sant’Antonio
+  - nome: Aci Sant’Antonio
     comune_riferimento: Catania
     indirizzo: Via Sant’Onofrio snc
-  - nome: Catania - Belpasso
+  - nome: Belpasso
     comune_riferimento: Catania
     indirizzo: Via Camporotondo snc
-  - nome: Catania - Biancavilla
+  - nome: Biancavilla
     comune_riferimento: Catania
     indirizzo: Via della Montagna snc
-  - nome: Catania - Camporotondo Etneo
+  - nome: Camporotondo Etneo
     comune_riferimento: Catania
     indirizzo: Via Luigi Pirandello snc
-  - nome: Catania - Centro
+  - nome: Centro
     comune_riferimento: Catania
     indirizzo: Via Gianni Maria 40
-  - nome: Catania - Tirreno
+  - nome: Tirreno
     comune_riferimento: Catania
     indirizzo: Viale Tirreno snc
-  - nome: Catania - Borgo-Sanzio
+  - nome: Borgo-Sanzio
     comune_riferimento: Catania
     indirizzo: Via Carmelo Patanè Romeo
-  - nome: Catania - Librino
+  - nome: Librino
     comune_riferimento: Catania
     indirizzo: Viale Biagio Pecorino
-  - nome: Catania - Monte Po
+  - nome: Monte Po
     comune_riferimento: Catania
     indirizzo: Via Fratelli Cairoli
-  - nome: Catania - Gravina
+  - nome: Gravina
     comune_riferimento: Catania
     indirizzo: Via Pietro Gobetti snc
-  - nome: Catania - Mascalucia
+  - nome: Mascalucia
     comune_riferimento: Catania
     indirizzo: Via Santa Margherita 38
-  - nome: Catania - Misterbianco
+  - nome: Misterbianco
     comune_riferimento: Catania
     indirizzo: Via Giuseppe Garibaldi snc
-  - nome: Catania - Misterbianco (Serra-Poggio Lupo)
+  - nome: Misterbianco (Serra-Poggio Lupo)
     comune_riferimento: Catania
     indirizzo: Via Puglia
-  - nome: Catania - Nicolosi
+  - nome: Nicolosi
     comune_riferimento: Catania
     indirizzo: Via Stanislao Cannizzaro snc
-  - nome: Catania - Paternò
+  - nome: Paternò
     comune_riferimento: Catania
     indirizzo: Via Giovanni Verga snc
-  - nome: Catania - Pedara
+  - nome: Pedara
     comune_riferimento: Catania
     indirizzo: Via Teocrito snc
-  - nome: Catania - Ragalna
+  - nome: Ragalna
     comune_riferimento: Catania
     indirizzo: Via Santa Maria di Licodia snc
-  - nome: Catania - San Pietro Clarenza
+  - nome: San Pietro Clarenza
     comune_riferimento: Catania
     indirizzo: Via Siracusa snc
-  - nome: Catania - Sant’Agata Li Battiati
+  - nome: Sant’Agata Li Battiati
     comune_riferimento: Catania
     indirizzo: Via Madonna di Fatima snc
-  - nome: Catania - Sant’Alfio
+  - nome: Sant’Alfio
     comune_riferimento: Catania
     indirizzo: Via Etnea snc
-  - nome: Catania - Trecastagni
+  - nome: Trecastagni
     comune_riferimento: Catania
     indirizzo: Via dello Sport 24
-  - nome: Catania - Valverde
+  - nome: Valverde
     comune_riferimento: Catania
     indirizzo: Via Angelo Reitano snc
-  - nome: Catania - Viagrande
+  - nome: Viagrande
     comune_riferimento: Catania
     indirizzo: Via Poio 23
-  - nome: Catania - Zafferana Etnea
+  - nome: Zafferana Etnea
     comune_riferimento: Catania
     indirizzo: Via dello Sport 8
 
