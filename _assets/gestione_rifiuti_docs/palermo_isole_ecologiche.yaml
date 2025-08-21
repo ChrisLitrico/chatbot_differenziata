@@ -1,0 +1,87 @@
+comune: Palermo
+provincia: Palermo
+tipo: isole_ecologiche
+last_updated: "2025-08-21"
+fonte: "https://www.rapspa.it/site/6915-2/"
+
+isole:
+  - nome: Basile
+    indirizzo: Via Ernesto Basile
+    orari_conferimento:
+      lunedì: "07:00 - 13:00"
+      martedì: "07:00 - 13:00"
+      mercoledì: "07:00 - 17:00"
+      giovedì: "07:00 - 13:00"
+      venerdì: "07:00 - 13:00"
+      sabato: "07:00 - 13:00"
+
+  - nome: Lennon
+    indirizzo: Piazzale John Lennon (nei pressi di Piazzale Giotto)
+    orari_conferimento:
+      lunedì: "07:00 - 17:00"
+      martedì: "07:00 - 17:00"
+      mercoledì: "07:00 - 17:00"
+      giovedì: "07:00 - 17:00"
+      venerdì: "07:00 - 17:00"
+      sabato: "07:00 - 17:00"
+      domenica: "07:00 - 12:00"
+
+  - nome: Minutilla - La Malfa
+    indirizzo: Via Salvatore Minutilla (nei pressi di Via Ugo La Malfa)
+    orari_conferimento:
+      lunedì: "07:00 - 17:00"
+      martedì: "07:00 - 13:00"
+      mercoledì: "07:00 - 13:00"
+      giovedì: "07:00 - 13:00"
+      venerdì: "07:00 - 13:00"
+      sabato: "07:00 - 13:00"
+
+  - nome: Oreto
+    indirizzo: Via della Montagna snc
+    orari_conferimento:
+      lunedì: "07:00 - 17:00"
+      martedì: "07:00 - 17:00"
+      mercoledì: "07:00 - 17:00"
+      giovedì: "07:00 - 17:00"
+      venerdì: "07:00 - 17:00"
+      sabato: "07:00 - 17:00"
+
+  - nome: Nicoletti
+    indirizzo: Via Rosario Nicoletti (zona Sferracavallo – Zen)
+    orari_conferimento:
+      lunedì: "07:00 - 13:00"
+      martedì: "07:00 - 13:00"
+      mercoledì: "07:00 - 13:00"
+      giovedì: "07:00 - 13:00"
+      venerdì: "07:00 - 17:00"
+      sabato: "07:00 - 13:00"
+      domenica: "07:00 - 12:00"
+
+  - nome: Pace
+    indirizzo: Piazza della Pace
+    orari_conferimento:
+      lunedì: "07:00 - 13:00"
+      martedì: "07:00 - 13:00"
+      mercoledì: "07:00 - 13:00"
+      giovedì: "07:00 - 13:00"
+      venerdì: "07:00 - 17:00"
+      sabato: "07:00 - 13:00"
+
+  - nome: Picciotti
+    indirizzo: Viale dei Picciotti 84 (zona Sperone – Brancaccio)
+    orari_conferimento:
+      lunedì: "07:00 - 13:00"
+      martedì: "07:00 - 17:00"
+      mercoledì: "07:00 - 13:00"
+      giovedì: "07:00 - 13:00"
+      venerdì: "07:00 - 13:00"
+      sabato: "07:00 - 13:00"
+      domenica: "07:00 - 12:00"
+
+rifiuti_ammessi:
+  umido: [scarti alimentari, fondi di caffè, gusci d’uovo]
+  carta_e_cartone: [carta, giornali, riviste, quaderni]
+  plastica_e_metalli: [bottiglie, flaconi, tetra pak, lattine, vaschette, cartoni bevande]
+  vetro: [bottiglie, vasetti]
+  indifferenziato: [materiali non riciclabili]
+  speciali: [ingombranti, RAEE, abiti usati, inerti, sfalci/potature, pannolini, oli vegetali, pile, farmaci]
