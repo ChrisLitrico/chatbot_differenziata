@@ -6,85 +6,60 @@ fonte: "https://www.srrcataniametropolitana.it/differenziamocatania/"
 
 isole:
   - nome: Aci Bonaccorsi
-    comune_riferimento: Catania
     indirizzo: Via Giorgio Esquerra de Roxas snc
   - nome: Aci Sant’Antonio
-    comune_riferimento: Catania
     indirizzo: Via Sant’Onofrio snc
   - nome: Belpasso
-    comune_riferimento: Catania
     indirizzo: Via Camporotondo snc
   - nome: Biancavilla
-    comune_riferimento: Catania
     indirizzo: Via della Montagna snc
   - nome: Camporotondo Etneo
-    comune_riferimento: Catania
     indirizzo: Via Luigi Pirandello snc
-  - nome: Centro
-    comune_riferimento: Catania
+  - nome: Catania (Centro)
     indirizzo: Via Gianni Maria 40
-  - nome: Tirreno
-    comune_riferimento: Catania
+  - nome: Catania (Tirreno)
     indirizzo: Viale Tirreno snc
-  - nome: Borgo-Sanzio
-    comune_riferimento: Catania
+  - nome: Catania (Borgo-Sanzio)
     indirizzo: Via Carmelo Patanè Romeo
-  - nome: Librino
-    comune_riferimento: Catania
+  - nome: Catania (Librino)
     indirizzo: Viale Biagio Pecorino
-  - nome: Monte Po
-    comune_riferimento: Catania
+  - nome: Catania (Monte Po)
     indirizzo: Via Fratelli Cairoli
-  - nome: Gravina
-    comune_riferimento: Catania
+  - nome: Gravina di Catania
     indirizzo: Via Pietro Gobetti snc
   - nome: Mascalucia
-    comune_riferimento: Catania
     indirizzo: Via Santa Margherita 38
   - nome: Misterbianco
-    comune_riferimento: Catania
     indirizzo: Via Giuseppe Garibaldi snc
   - nome: Misterbianco (Serra-Poggio Lupo)
-    comune_riferimento: Catania
     indirizzo: Via Puglia
   - nome: Nicolosi
-    comune_riferimento: Catania
     indirizzo: Via Stanislao Cannizzaro snc
   - nome: Paternò
-    comune_riferimento: Catania
     indirizzo: Via Giovanni Verga snc
   - nome: Pedara
-    comune_riferimento: Catania
     indirizzo: Via Teocrito snc
   - nome: Ragalna
-    comune_riferimento: Catania
     indirizzo: Via Santa Maria di Licodia snc
   - nome: San Pietro Clarenza
-    comune_riferimento: Catania
     indirizzo: Via Siracusa snc
   - nome: Sant’Agata Li Battiati
-    comune_riferimento: Catania
     indirizzo: Via Madonna di Fatima snc
   - nome: Sant’Alfio
-    comune_riferimento: Catania
     indirizzo: Via Etnea snc
   - nome: Trecastagni
-    comune_riferimento: Catania
     indirizzo: Via dello Sport 24
   - nome: Valverde
-    comune_riferimento: Catania
     indirizzo: Via Angelo Reitano snc
   - nome: Viagrande
-    comune_riferimento: Catania
     indirizzo: Via Poio 23
   - nome: Zafferana Etnea
-    comune_riferimento: Catania
     indirizzo: Via dello Sport 8
 
 rifiuti_ammessi:
-  - umido: [scarti alimentari, fondi di caffè, gusci d’uovo]
-  - carta_e_cartone: [carta sporca, tetra pak, cartoni bevande]
-  - plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette]
-  - vetro: [bottiglie, vasetti]
-  - indifferenziato: [materiali non riciclabili]
-  - speciali: [ingombranti, RAEE, abiti usati, inerti, sfalci/potature, pannolini, oli vegetali, pile e farmaci]
+  umido: [scarti alimentari, fondi di caffè, gusci d’uovo]
+  carta_e_cartone: [carta sporca, tetra pak, cartoni bevande]
+  plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette]
+  vetro: [bottiglie, vasetti]
+  indifferenziato: [materiali non riciclabili]
+  speciali: [ingombranti, RAEE, abiti usati, inerti, sfalci/potature, pannolini, oli vegetali, pile, farmaci]
