@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       },
     });
 
-    const retrieverOutput = await retriever.getRelevantDocuments(query);
+    const retrieverOutput = await retriever.invoke(query);
 
     return new Response(JSON.stringify(retrieverOutput), {
       headers: { "Content-Type": "application/json" },

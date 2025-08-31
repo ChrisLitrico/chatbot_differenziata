@@ -58,14 +58,16 @@ export async function POST(req: Request) {
     // Recupero del contesto da vector search
     let vectorSearch = {};
     try {
-      const vectorResponse = await fetch(
-        "http://localhost:3000/api/vectorSearch",
-        {
-          method: "POST",
-          headers: { "Content-Type": "text/plain" },
-          body: currentMessageContent,
-        }
-      );
+     const vectorResponse = await fetch(
+       process.env.NODE_ENV === "development"
+         ? "http://localhost:3000/api/vectorSearch"
+         : "/api/vectorSearch", // or your deployed URL
+       {
+         method: "POST",
+         headers: { "Content-Type": "text/plain" },
+         body: currentMessageContent,
+       }
+     );
 
       if (vectorResponse.ok) {
         vectorSearch = await vectorResponse.json();
