@@ -24,6 +24,10 @@ function extractMetadata(text, fileName) {
     comune = "Messina";
   } else if (normalizedFile.includes("palermo")) {
     comune = "Palermo";
+  } else if (normalizedFile.includes("ragusa")) {
+    comune = "Ragusa";
+  } else if (normalizedFile.includes("siracusa")) {
+    comune = "Siracusa";
   }
 
   // 2. GESTIONE CALENDARI RACCOLTA

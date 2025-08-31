@@ -35,16 +35,24 @@ export async function POST(req: Request) {
     const currentMessageContent = extractMessageText(lastMessage);
 
     if (!currentMessageContent.trim()) {
-      return Response.json({
-        id: Date.now().toString(),
-        role: "assistant",
-        parts: [
-          {
-            type: "text",
-            text: "Mi dispiace, non ho ricevuto nessuna domanda. Puoi ripetere per favore?",
+      return new Response(
+        JSON.stringify({
+          id: Date.now().toString(),
+          role: "assistant",
+          parts: [
+            {
+              type: "text",
+              text: "Mi dispiace, non ho ricevuto nessuna domanda. Puoi ripetere per favore?",
+            },
+          ],
+        }),
+        {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
           },
-        ],
-      });
+        }
+      );
     }
 
     // Recupero del contesto da vector search
@@ -112,21 +120,29 @@ DOMANDA UTENTE: ${currentMessageContent}`;
         : JSON.stringify(responseMessage.content);
 
     // Restituisci la risposta nel formato atteso da useChat con parts
-    return Response.json({
-      id: Date.now().toString(),
-      role: "assistant",
-      parts: [
-        {
-          type: "text",
-          text: responseText,
+    return new Response(
+      JSON.stringify({
+        id: Date.now().toString(),
+        role: "assistant",
+        parts: [
+          {
+            type: "text",
+            text: responseText,
+          },
+        ],
+      }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
         },
-      ],
-    });
+      }
+    );
   } catch (error) {
     console.error("Error in chat route:", error);
 
-    return Response.json(
-      {
+    return new Response(
+      JSON.stringify({
         id: Date.now().toString(),
         role: "assistant",
         parts: [
@@ -135,8 +151,13 @@ DOMANDA UTENTE: ${currentMessageContent}`;
             text: "Mi dispiace, si è verificato un errore. Riprova tra un momento.",
           },
         ],
-      },
-      { status: 500 }
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
   }
 }
