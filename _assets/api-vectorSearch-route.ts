@@ -4,7 +4,16 @@ import mongoClientPromise from "@/app/lib/mongodb";
 
 export async function POST(req: Request) {
   try {
-    const { query } = await req.json();
+    const contentType = req.headers.get('content-type');
+    let query;
+
+    // Gestisce sia JSON che plain text
+    if (contentType?.includes('application/json')) {
+      const body = await req.json();
+      query = body.query;
+    } else {
+      query = await req.text();
+    }
 
     if (!query || typeof query !== "string") {
       return new Response(
