@@ -5,25 +5,44 @@ import { streamText, UIMessage, convertToModelMessages } from "ai";
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
-  const { messages }: { messages: UIMessage[] } = await req.json();
+  try {
+    const { messages }: { messages: UIMessage[] } = await req.json();
 
-  // Ultimo messaggio dell’utente
-  const lastMessage = messages[messages.length - 1];
-  const currentMessageContent = lastMessage.parts
-    .map((p) => (p.type === "text" ? p.text : ""))
-    .join("\n");
+    // Ultimo messaggio dell'utente
+    const lastMessage = messages[messages.length - 1];
+    const currentMessageContent = lastMessage.parts
+      .map((p) => (p.type === "text" ? p.text : ""))
+      .join("\n");
 
-  // Chiamata al tuo endpoint di vector search
-  const vectorSearch = await fetch("http://localhost:3000/api/vectorSearch", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: currentMessageContent,
-  }).then((res) => res.json());
+    // Chiamata al tuo endpoint di vector search
+    let vectorSearch = {};
+    
+    try {
+      const vectorResponse = await fetch(
+        process.env.NODE_ENV === 'development' 
+          ? "http://localhost:3000/api/vectorSearch"
+          : "https://chatbot-differenziata.netlify.app",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain", // Cambiato da application/json
+          },
+          body: currentMessageContent, // Inviato come plain text
+        }
+      );
 
-  // Prompt template con contesto
-  const SYSTEM_TEMPLATE = `Sei un assistente esperto nella raccolta differenziata siciliana. Il tuo obiettivo è aiutare i cittadini a smaltire correttamente i rifiuti.
+      if (vectorResponse.ok) {
+        vectorSearch = await vectorResponse.json();
+      } else {
+        console.warn('Vector search failed:', vectorResponse.status);
+      }
+    } catch (vectorError) {
+      console.error('Vector search error:', vectorError);
+      // Continua senza contesto se fallisce
+    }
+
+    // Prompt template con contesto
+    const SYSTEM_TEMPLATE = `Sei un assistente esperto nella raccolta differenziata siciliana. Il tuo obiettivo è aiutare i cittadini a smaltire correttamente i rifiuti.
 
 ISTRUZIONI OPERATIVE:
 - Rispondi SOLO usando le informazioni fornite nei documenti
@@ -42,16 +61,30 @@ SE NON SAI LA RISPOSTA:
 [Includi link disponibili se presenti nel contesto]"
 
 CONTESTO DISPONIBILE:
-${JSON.stringify(vectorSearch)}
+${JSON.stringify(vectorSearch)}`;
 
-DOMANDA UTENTE: ${currentMessageContent}`;
+    // Stream verso gpt-5-nano (mantiene la cronologia e aggiunge il contesto come system prompt)
+    const result = streamText({
+      model: openai("gpt-5-nano"),
+      system: SYSTEM_TEMPLATE,
+      messages: convertToModelMessages(messages),
+    });
 
-  // Stream verso gpt-5-nano (mantiene la cronologia e aggiunge il contesto come system prompt)
-  const result = streamText({
-    model: openai("gpt-5-nano"),
-    system: SYSTEM_TEMPLATE,
-    messages: convertToModelMessages(messages),
-  });
-
-  return result.toUIMessageStreamResponse();
+    return result.toUIMessageStreamResponse();
+    
+  } catch (error) {
+    console.error('Chat API error:', error);
+    
+    // Ritorna una risposta di errore
+    return new Response(
+      JSON.stringify({ 
+        error: 'Internal server error',
+        message: 'Si è verificato un errore. Riprova tra un momento.' 
+      }), 
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
+  }
 }
