@@ -12,7 +12,7 @@ declare global {
 }
 
 if (!uri) {
-  throw new Error('Please add your Mongo URI to .env.local')
+  throw new Error('Missing MONGODB_ATLAS_URI in environment variables. Please configure it in .env.local or Netlify environment settings.')
 }
 
 if (process.env.NODE_ENV === 'development') {

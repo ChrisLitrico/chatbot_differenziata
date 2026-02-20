@@ -5,6 +5,8 @@ import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 // streaming responses up to 30 seconds
 export const maxDuration = 30
 
+const MODEL_NAME = process.env.OPENAI_MODEL || 'gpt-4-mini'
+
 function extractMessageText(message: UIMessage | undefined): string {
   if (!message || !Array.isArray(message.parts)) {
     return ''
@@ -70,9 +72,9 @@ SE NON HAI INFO SPECIFICHE NEL CONTESTO:
 CONTESTO:
 ${ragContext}`
 
-    // Stream verso gpt-5-nano (mantiene la cronologia e aggiunge il contesto come system prompt)
+    // Stream verso il modello configurato (mantiene la cronologia e aggiunge il contesto come system prompt)
     const result = streamText({
-      model: openai('gpt-5-nano'),
+      model: openai(MODEL_NAME),
       system: SYSTEM_TEMPLATE,
       messages: convertToModelMessages(messages),
     })
