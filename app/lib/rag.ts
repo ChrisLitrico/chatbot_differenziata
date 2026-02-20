@@ -1,5 +1,5 @@
 import { OpenAIEmbeddings } from '@langchain/openai'
-import mongoClientPromise from '@/app/lib/mongodb'
+import { getMongoClient } from '@/app/lib/mongodb'
 
 type RetrievedDoc = {
   pageContent: string
@@ -118,7 +118,7 @@ function dedupeDocuments(docs: RetrievedDoc[]): RetrievedDoc[] {
 }
 
 async function getCollection() {
-  const client = await mongoClientPromise
+  const client = await getMongoClient()
   return client.db(DB_NAME).collection(COLLECTION_NAME)
 }
 
