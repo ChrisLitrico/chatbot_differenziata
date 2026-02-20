@@ -5,7 +5,8 @@ import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 // streaming responses up to 60 seconds (Netlify supports up to 26s free, 900s pro)
 export const maxDuration = 60
 
-const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'llama-3.1-sonar-small-128k-online'
+// Default: sonar (cheap, fast). Override with PERPLEXITY_MODEL env var if needed.
+const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'sonar'
 
 // Initialize Perplexity client via OpenAI-compatible endpoint
 const perplexity = openai({
