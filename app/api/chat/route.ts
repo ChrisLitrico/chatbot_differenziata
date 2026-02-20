@@ -9,9 +9,11 @@ export const maxDuration = 60
 const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'sonar'
 
 // Initialize Perplexity client via OpenAI-compatible endpoint
+// compatibility: 'compatible' forces /chat/completions instead of /responses
 const perplexity = createOpenAI({
   apiKey: process.env.PERPLEXITY_API_KEY,
   baseURL: 'https://api.perplexity.ai',
+  compatibility: 'compatible',
 })
 
 function extractMessageText(message: UIMessage | undefined): string {
