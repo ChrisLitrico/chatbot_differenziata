@@ -1,81 +1,76 @@
 // app/api/chat/route.ts
-import { ChatOpenAI } from "@langchain/openai";
-import { HumanMessage, SystemMessage } from "@langchain/core/messages";
+import { ChatOpenAI } from '@langchain/openai'
+import { HumanMessage, SystemMessage } from '@langchain/core/messages'
 
-export const runtime = "edge";
-export const maxDuration = 30;
+export const runtime = 'edge'
+export const maxDuration = 30
 
 // Funzione helper per estrarre il testo dai messaggi usando parts
 function extractMessageText(message: any): string {
   if (!Array.isArray(message.parts)) {
-    console.warn(
-      "Message parts non trovate, usando fallback content:",
-      message
-    );
+    console.warn('Message parts non trovate, usando fallback content:', message)
     // Fallback per compatibilità
-    return typeof message.content === "string" ? message.content : "";
+    return typeof message.content === 'string' ? message.content : ''
   }
 
   return message.parts
-    .filter((part: any) => part.type === "text")
+    .filter((part: any) => part.type === 'text')
     .map((part: any) => part.text)
-    .join("");
+    .join('')
 }
 
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
+    const { messages } = await req.json()
 
     if (!Array.isArray(messages)) {
-      return new Response("Invalid messages array", { status: 400 });
+      return new Response('Invalid messages array', { status: 400 })
     }
 
     // Estrai il contenuto dell'ultimo messaggio per la ricerca vettoriale
-    const lastMessage = messages[messages.length - 1];
-    const currentMessageContent = extractMessageText(lastMessage);
+    const lastMessage = messages[messages.length - 1]
+    const currentMessageContent = extractMessageText(lastMessage)
 
     if (!currentMessageContent.trim()) {
       return new Response(
         JSON.stringify({
           id: Date.now().toString(),
-          role: "assistant",
+          role: 'assistant',
           parts: [
             {
-              type: "text",
-              text: "Mi dispiace, non ho ricevuto nessuna domanda. Puoi ripetere per favore?",
+              type: 'text',
+              text: 'Mi dispiace, non ho ricevuto nessuna domanda. Puoi ripetere per favore?',
             },
           ],
         }),
         {
           status: 200,
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        }
-      );
+        },
+      )
     }
 
     // Recupero del contesto da vector search
-    let vectorSearch = {};
+    let vectorSearch = {}
     try {
       const vectorResponse = await fetch(
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000/api/vectorSearch"
-        : `${process.env.VERCEL_URL || 'https://chatbot-differenziata.netlify.app'}/api/vectorSearch`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: currentMessageContent,
-      }
-    )
+        process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/vectorSearch' : `${process.env.VERCEL_URL || 'https://chatbot-differenziata.netlify.app'}/api/vectorSearch`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: currentMessageContent,
+        },
+      )
 
       if (vectorResponse.ok) {
-        vectorSearch = await vectorResponse.json();
+        vectorSearch = await vectorResponse.json()
       } else {
-        console.warn("Vector search failed, proceeding without context");
+        console.warn('Vector search failed, proceeding without context')
       }
     } catch (vectorError) {
-      console.error("Vector search error:", vectorError);
+      console.error('Vector search error:', vectorError)
       // Procediamo senza contesto se la ricerca vettoriale fallisce
     }
 
@@ -101,34 +96,26 @@ SE NON SAI LA RISPOSTA:
 CONTESTO DISPONIBILE:
 ${JSON.stringify(vectorSearch)}
 
-DOMANDA UTENTE: ${currentMessageContent}`;
+DOMANDA UTENTE: ${currentMessageContent}`
 
     // Costruzione messaggi per LangChain
-    const lcMessages = [
-      new SystemMessage(
-        "Tu sei un assistente per la raccolta differenziata in Sicilia."
-      ),
-      new HumanMessage(TEMPLATE),
-    ];
+    const lcMessages = [new SystemMessage('Tu sei un assistente per la raccolta differenziata in Sicilia.'), new HumanMessage(TEMPLATE)]
 
     const model = new ChatOpenAI({
-      model: "gpt-5-nano",
-    });
+      model: 'gpt-4o-mini',
+    })
 
-    const responseMessage = await model.invoke(lcMessages);
-    const responseText =
-      typeof responseMessage.content === "string"
-        ? responseMessage.content
-        : JSON.stringify(responseMessage.content);
+    const responseMessage = await model.invoke(lcMessages)
+    const responseText = typeof responseMessage.content === 'string' ? responseMessage.content : JSON.stringify(responseMessage.content)
 
     // Restituisci la risposta nel formato atteso da useChat con parts
     return new Response(
       JSON.stringify({
         id: Date.now().toString(),
-        role: "assistant",
+        role: 'assistant',
         parts: [
           {
-            type: "text",
+            type: 'text',
             text: responseText,
           },
         ],
@@ -136,30 +123,30 @@ DOMANDA UTENTE: ${currentMessageContent}`;
       {
         status: 200,
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-      }
-    );
+      },
+    )
   } catch (error) {
-    console.error("Error in chat route:", error);
+    console.error('Error in chat route:', error)
 
     return new Response(
       JSON.stringify({
         id: Date.now().toString(),
-        role: "assistant",
+        role: 'assistant',
         parts: [
           {
-            type: "text",
-            text: "Mi dispiace, si è verificato un errore. Riprova tra un momento.",
+            type: 'text',
+            text: 'Mi dispiace, si è verificato un errore. Riprova tra un momento.',
           },
         ],
       }),
       {
         status: 500,
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-      }
-    );
+      },
+    )
   }
 }
