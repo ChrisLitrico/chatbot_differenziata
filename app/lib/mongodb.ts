@@ -1,7 +1,18 @@
 import { MongoClient } from 'mongodb'
 
 const uri = process.env.MONGODB_ATLAS_URI as string // your mongodb connection string
-const options = {}
+
+// M0 Free Tier clusters pause after inactivity — these options ensure
+// we don't hang indefinitely while the cluster wakes up.
+const options = {
+  serverSelectionTimeoutMS: 10000, // max 10s to find a server
+  connectTimeoutMS: 10000,         // max 10s to establish connection
+  socketTimeoutMS: 20000,          // max 20s per socket operation
+  maxPoolSize: 5,                  // keep pool small for serverless
+  minPoolSize: 0,                  // don't keep idle connections
+  retryWrites: true,
+  retryReads: true,
+}
 
 let client: MongoClient
 let mongoClientPromise: Promise<MongoClient>

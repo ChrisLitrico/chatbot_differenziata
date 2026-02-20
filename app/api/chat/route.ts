@@ -2,8 +2,8 @@ import { openai } from '@ai-sdk/openai'
 import { streamText, UIMessage, convertToModelMessages } from 'ai'
 import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 
-// streaming responses up to 30 seconds
-export const maxDuration = 30
+// streaming responses up to 60 seconds (Netlify supports up to 26s free, 900s pro)
+export const maxDuration = 60
 
 const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'llama-3.1-sonar-small-128k-online'
 
@@ -53,9 +53,10 @@ export async function POST(req: Request) {
 
     try {
       console.log('[Chat API] Retrieving documents...')
+      const startTime = Date.now()
       const vectorSearchDocs = await retrieveRelevantDocuments(currentMessageContent)
+      console.log('[Chat API] Documents retrieved in', Date.now() - startTime, 'ms, found:', vectorSearchDocs.length)
       ragContext = formatRagContext(vectorSearchDocs)
-      console.log('[Chat API] Documents retrieved successfully')
     } catch (vectorError) {
       console.error('[Chat API] Vector search error:', vectorError)
       // Continua senza contesto se fallisce
