@@ -8,12 +8,11 @@ export const maxDuration = 60
 // Default: sonar (cheap, fast). Override with PERPLEXITY_MODEL env var if needed.
 const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'sonar'
 
-// Initialize Perplexity client via OpenAI-compatible endpoint
-// compatibility: 'compatible' forces /chat/completions instead of /responses
-const perplexity = createOpenAI({
+// Initialize Perplexity via OpenAI-compatible provider
+// .chat() forces /chat/completions endpoint (Perplexity doesn't support /responses)
+const perplexityProvider = createOpenAI({
   apiKey: process.env.PERPLEXITY_API_KEY,
   baseURL: 'https://api.perplexity.ai',
-  compatibility: 'compatible',
 })
 
 function extractMessageText(message: UIMessage | undefined): string {
@@ -91,7 +90,7 @@ ${ragContext}`
     // Stream verso il modello Perplexity configurato (mantiene la cronologia e aggiunge il contesto come system prompt)
     console.log('[Chat API] Starting stream with model:', MODEL_NAME)
     const result = streamText({
-      model: perplexity(MODEL_NAME),
+      model: perplexityProvider.chat(MODEL_NAME),
       system: SYSTEM_TEMPLATE,
       messages: convertToModelMessages(messages),
     })
