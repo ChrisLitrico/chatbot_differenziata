@@ -5,7 +5,13 @@ import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 // streaming responses up to 30 seconds
 export const maxDuration = 30
 
-const MODEL_NAME = process.env.OPENAI_MODEL || 'gpt-4-mini'
+const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'llama-3.1-sonar-small-128k-online'
+
+// Initialize Perplexity client via OpenAI-compatible endpoint
+const perplexity = openai({
+  apiKey: process.env.PERPLEXITY_API_KEY,
+  baseURL: 'https://api.perplexity.ai',
+})
 
 function extractMessageText(message: UIMessage | undefined): string {
   if (!message || !Array.isArray(message.parts)) {
@@ -22,8 +28,8 @@ export async function POST(req: Request) {
   try {
     console.log('[Chat API] Starting request...')
     console.log('[Chat API] MODEL_NAME:', MODEL_NAME)
-    console.log('[Chat API] OPENAI_API_KEY exists:', !!process.env.OPENAI_API_KEY)
-    
+    console.log('[Chat API] PERPLEXITY_API_KEY exists:', !!process.env.PERPLEXITY_API_KEY)
+
     const { messages }: { messages: UIMessage[] } = await req.json()
     if (!Array.isArray(messages) || messages.length === 0) {
       return Response.json({ error: 'Invalid messages payload.' }, { status: 400 })
@@ -78,10 +84,10 @@ SE NON HAI INFO SPECIFICHE NEL CONTESTO:
 CONTESTO:
 ${ragContext}`
 
-    // Stream verso il modello configurato (mantiene la cronologia e aggiunge il contesto come system prompt)
+    // Stream verso il modello Perplexity configurato (mantiene la cronologia e aggiunge il contesto come system prompt)
     console.log('[Chat API] Starting stream with model:', MODEL_NAME)
     const result = streamText({
-      model: openai(MODEL_NAME),
+      model: perplexity(MODEL_NAME),
       system: SYSTEM_TEMPLATE,
       messages: convertToModelMessages(messages),
     })
