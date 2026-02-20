@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai'
+import { createOpenAI } from '@ai-sdk/openai'
 import { streamText, UIMessage, convertToModelMessages } from 'ai'
 import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 
@@ -9,7 +9,7 @@ export const maxDuration = 60
 const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'sonar'
 
 // Initialize Perplexity client via OpenAI-compatible endpoint
-const perplexity = openai({
+const perplexity = createOpenAI({
   apiKey: process.env.PERPLEXITY_API_KEY,
   baseURL: 'https://api.perplexity.ai',
 })
