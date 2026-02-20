@@ -20,6 +20,10 @@ function extractMessageText(message: UIMessage | undefined): string {
 
 export async function POST(req: Request) {
   try {
+    console.log('[Chat API] Starting request...')
+    console.log('[Chat API] MODEL_NAME:', MODEL_NAME)
+    console.log('[Chat API] OPENAI_API_KEY exists:', !!process.env.OPENAI_API_KEY)
+    
     const { messages }: { messages: UIMessage[] } = await req.json()
     if (!Array.isArray(messages) || messages.length === 0) {
       return Response.json({ error: 'Invalid messages payload.' }, { status: 400 })
@@ -42,10 +46,12 @@ export async function POST(req: Request) {
     let ragContext = 'Nessun documento rilevante recuperato.'
 
     try {
+      console.log('[Chat API] Retrieving documents...')
       const vectorSearchDocs = await retrieveRelevantDocuments(currentMessageContent)
       ragContext = formatRagContext(vectorSearchDocs)
+      console.log('[Chat API] Documents retrieved successfully')
     } catch (vectorError) {
-      console.error('Vector search error:', vectorError)
+      console.error('[Chat API] Vector search error:', vectorError)
       // Continua senza contesto se fallisce
     }
 
@@ -73,15 +79,19 @@ CONTESTO:
 ${ragContext}`
 
     // Stream verso il modello configurato (mantiene la cronologia e aggiunge il contesto come system prompt)
+    console.log('[Chat API] Starting stream with model:', MODEL_NAME)
     const result = streamText({
       model: openai(MODEL_NAME),
       system: SYSTEM_TEMPLATE,
       messages: convertToModelMessages(messages),
     })
+    console.log('[Chat API] Stream started, returning response')
 
     return result.toUIMessageStreamResponse()
   } catch (error) {
-    console.error('Chat API error:', error)
+    console.error('[Chat API] Fatal error:', error)
+    console.error('[Chat API] Error type:', error instanceof Error ? error.constructor.name : typeof error)
+    console.error('[Chat API] Error message:', error instanceof Error ? error.message : String(error))
 
     // Ritorna una risposta di errore
     return new Response(
