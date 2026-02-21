@@ -1,7 +1,5 @@
-import { createOpenAI } from '@ai-sdk/openai'
-import { streamText, UIMessage } from 'ai'
+import { UIMessage } from 'ai'
 import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
-import type { CoreMessage } from 'ai'
 
 // streaming responses up to 60 seconds (Netlify supports up to 26s free, 900s pro)
 export const maxDuration = 60
@@ -9,21 +7,20 @@ export const maxDuration = 60
 // Default: sonar (cheap, fast). Override with PERPLEXITY_MODEL env var if needed.
 const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'sonar'
 
-// Initialize Perplexity via OpenAI-compatible provider
-const perplexityProvider = createOpenAI({
-  apiKey: process.env.PERPLEXITY_API_KEY,
-  baseURL: 'https://api.perplexity.ai',
-})
-
 function extractMessageText(message: UIMessage | undefined): string {
-  if (!message || !Array.isArray(message.parts)) {
-    return ''
+  if (!message) return ''
+  // AI SDK v5: parts array (preferred)
+  if (Array.isArray(message.parts) && message.parts.length > 0) {
+    return (message.parts as Array<{ type: string; text?: string }>)
+      .map((part) => (part.type === 'text' && part.text ? part.text : ''))
+      .join('\n')
+      .trim()
   }
-
-  return message.parts
-    .map((part) => (part.type === 'text' ? part.text : ''))
-    .join('\n')
-    .trim()
+  // Fallback: content string (older SDK versions / raw fetch)
+  if (typeof (message as unknown as { content?: string }).content === 'string') {
+    return (message as unknown as { content: string }).content.trim()
+  }
+  return ''
 }
 
 export async function POST(req: Request) {
@@ -37,22 +34,16 @@ export async function POST(req: Request) {
       return Response.json({ error: 'Invalid messages payload.' }, { status: 400 })
     }
 
-    // Ultimo messaggio dell'utente
     const lastMessage = messages[messages.length - 1]
+    console.log('[Chat API] Last message role:', lastMessage?.role, 'parts:', JSON.stringify(lastMessage?.parts)?.slice(0, 200))
     const currentMessageContent = extractMessageText(lastMessage)
+    console.log('[Chat API] Extracted content:', currentMessageContent?.slice(0, 100))
     if (!currentMessageContent) {
-      return Response.json(
-        {
-          error: 'Missing message content.',
-          message: 'Mi dispiace, non ho ricevuto una domanda valida. Puoi riprovare?',
-        },
-        { status: 400 },
-      )
+      return Response.json({ error: 'Missing message content.' }, { status: 400 })
     }
 
-    // Chiamata al tuo endpoint di vector search
+    // RAG context
     let ragContext = 'Nessun documento rilevante recuperato.'
-
     try {
       console.log('[Chat API] Retrieving documents...')
       const startTime = Date.now()
@@ -61,10 +52,8 @@ export async function POST(req: Request) {
       ragContext = formatRagContext(vectorSearchDocs)
     } catch (vectorError) {
       console.error('[Chat API] Vector search error:', vectorError)
-      // Continua senza contesto se fallisce
     }
 
-    // Prompt template con contesto
     const SYSTEM_TEMPLATE = `Sei un assistente amichevole per la raccolta differenziata in Sicilia.
 
 STILE:
@@ -76,49 +65,135 @@ FORMATO:
 - Vai dritto al punto con le info essenziali
 - Per calendari: "[Tipo] → [Giorno/i]" su righe separate
 - Aggiungi dettagli utili (orario, contenitore) solo se rilevanti
-- Link utili alla fine, se disponibili
 
 SE NON HAI INFO SPECIFICHE NEL CONTESTO:
-- Prova comunque a rispondere usando le tue conoscenze generali sulla raccolta differenziata
-- Indica chiaramente che si tratta di indicazioni generali e non specifiche per il comune dell'utente
-- Suggerisci di verificare con il gestore locale o il comune per conferma
-- Solo se non puoi aiutare in nessun modo: "Non ho questa informazione. Contatta il gestore della tua zona o il comune."
+- Rispondi con conoscenze generali indicando che sono indicazioni generali
+- Solo se non puoi aiutare: "Non ho questa informazione. Contatta il gestore della tua zona."
 
 CONTESTO:
 ${ragContext}`
 
-    // Converti UIMessage a CoreMessage manualmente (senza convertToModelMessages che aggiunge ruoli extra)
-    const coreMessages: CoreMessage[] = messages
-      .filter((msg) => msg.role === 'user' || msg.role === 'assistant')
-      .map((msg) => ({
-        role: msg.role as 'user' | 'assistant',
-        content: extractMessageText(msg),
-      }))
+    // Build messages for Perplexity (only user/assistant roles)
+    const perplexityMessages = [
+      { role: 'system' as const, content: SYSTEM_TEMPLATE },
+      ...messages
+        .filter((msg) => msg.role === 'user' || msg.role === 'assistant')
+        .map((msg) => ({
+          role: msg.role as 'user' | 'assistant',
+          content: extractMessageText(msg),
+        })),
+    ]
 
     console.log('[Chat API] Starting stream with model:', MODEL_NAME)
-    const result = streamText({
-      model: perplexityProvider.chat(MODEL_NAME),
-      system: SYSTEM_TEMPLATE,
-      messages: coreMessages,
+
+    // Call Perplexity directly
+    const perplexityRes = await fetch('https://api.perplexity.ai/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.PERPLEXITY_API_KEY}`,
+      },
+      body: JSON.stringify({ model: MODEL_NAME, messages: perplexityMessages, stream: true }),
     })
+
+    if (!perplexityRes.ok) {
+      const err = await perplexityRes.text()
+      throw new Error(`Perplexity error ${perplexityRes.status}: ${err}`)
+    }
+
     console.log('[Chat API] Stream started, returning response')
 
-    return result.toTextStreamResponse()
-  } catch (error) {
-    console.error('[Chat API] Fatal error:', error)
-    console.error('[Chat API] Error type:', error instanceof Error ? error.constructor.name : typeof error)
-    console.error('[Chat API] Error message:', error instanceof Error ? error.message : String(error))
+    // Re-format Perplexity SSE into the AI SDK v5 UIMessageStream protocol
+    // that useChat() from @ai-sdk/react expects
+    const messageId = crypto.randomUUID()
+    const textPartId = crypto.randomUUID()
 
-    // Ritorna una risposta di errore
-    return new Response(
-      JSON.stringify({
-        error: 'Internal server error',
-        message: 'Si è verificato un errore. Riprova tra un momento.',
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
+    const encoder = new TextEncoder()
+    const decoder = new TextDecoder()
+
+    const uiStream = new ReadableStream({
+      async start(controller) {
+        const emit = (obj: object) => {
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify(obj)}\n\n`))
+        }
+
+        // AI SDK v5 UIMessageStream protocol events
+        emit({ type: 'start', messageId })
+        emit({ type: 'text-start', id: textPartId })
+
+        const reader = perplexityRes.body?.getReader()
+        if (!reader) {
+          controller.close()
+          return
+        }
+
+        let buffer = ''
+        try {
+          while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+
+            // Accumulate in buffer to handle lines split across chunks
+            buffer += decoder.decode(value, { stream: true })
+            const lines = buffer.split('\n')
+            // Keep the last (potentially incomplete) line in the buffer
+            buffer = lines.pop() ?? ''
+
+            for (const line of lines) {
+              if (!line.startsWith('data: ')) continue
+              const data = line.slice(6).trim()
+              if (data === '[DONE]') continue
+              try {
+                const parsed = JSON.parse(data)
+                let delta: string = parsed.choices?.[0]?.delta?.content ?? ''
+                if (delta) {
+                  // Strip Perplexity citation markers like [1], [5][8], etc.
+                  delta = delta.replace(/\[\d+\]/g, '')
+                  emit({ type: 'text-delta', id: textPartId, delta })
+                }
+              } catch {
+                /* skip malformed lines */
+              }
+            }
+          }
+          // Flush any remaining buffer content
+          if (buffer.startsWith('data: ')) {
+            const data = buffer.slice(6).trim()
+            if (data && data !== '[DONE]') {
+              try {
+                const parsed = JSON.parse(data)
+                let delta: string = parsed.choices?.[0]?.delta?.content ?? ''
+                if (delta) {
+                  delta = delta.replace(/\[\d+\]/g, '')
+                  emit({ type: 'text-delta', id: textPartId, delta })
+                }
+              } catch {
+                /* skip */
+              }
+            }
+          }
+        } finally {
+          reader.releaseLock()
+        }
+
+        emit({ type: 'text-end', id: textPartId })
+        emit({ type: 'finish' })
+        controller.close()
       },
-    )
+    })
+
+    return new Response(uiStream, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        Connection: 'keep-alive',
+      },
+    })
+  } catch (error) {
+    const msg = error instanceof Error ? error.message : String(error)
+    const stack = error instanceof Error ? error.stack : undefined
+    console.error('[Chat API] Fatal error:', msg)
+    if (stack) console.error('[Chat API] Stack:', stack)
+    return new Response(JSON.stringify({ error: 'Internal server error', detail: msg }), { status: 500, headers: { 'Content-Type': 'application/json' } })
   }
 }

@@ -6,6 +6,7 @@ import React, { useRef, useCallback } from 'react'
 import { RiRobot3Fill } from 'react-icons/ri'
 import { HiOutlinePlusCircle } from 'react-icons/hi'
 import useSmoothScrollToBottom from '@/hooks/useSmoothScrollToBottom'
+import ReactMarkdown from 'react-markdown'
 
 // Tipi aggiornati per seguire la documentazione ai-sdk
 type TextPart = { type: 'text'; text: string }
@@ -75,10 +76,10 @@ export default function Chat() {
               <div
                 ref={scrollRef}
                 key={uiMessage.id}
-                className={`mb-3 whitespace-pre-wrap text-sm leading-relaxed
+                className={`mb-3 text-sm leading-relaxed
                 ${
                   uiMessage.role === 'user'
-                    ? 'ml-auto bg-pink-200 rounded-2xl shadow-sm px-4 pt-2 max-w-[85%] sm:max-w-[70%] text-right animate-fade-slide-right'
+                    ? 'ml-auto bg-pink-200 rounded-2xl shadow-sm px-4 pt-2 max-w-[85%] sm:max-w-[70%] text-right whitespace-pre-wrap animate-fade-slide-right'
                     : `mr-auto bg-green-50 rounded-2xl px-4 py-2 text-left animate-fade-slide-left ${isEmpty ? 'w-fit' : 'w-full border-l border-purple-300'}`
                 }`}
               >
@@ -93,7 +94,28 @@ export default function Chat() {
                     </div>
                   )}
                 </strong>
-                {isEmpty && uiMessage.role === 'assistant' ? <TypingDots /> : text}
+                {isEmpty && uiMessage.role === 'assistant' ? (
+                  <TypingDots />
+                ) : uiMessage.role === 'assistant' ? (
+                  <ReactMarkdown
+                    components={{
+                      p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                      strong: ({ children }) => <strong className="font-semibold text-gray-800">{children}</strong>,
+                      em: ({ children }) => <em className="italic">{children}</em>,
+                      ul: ({ children }) => <ul className="pl-4 mb-2 space-y-1 list-disc">{children}</ul>,
+                      ol: ({ children }) => <ol className="pl-4 mb-2 space-y-1 list-decimal">{children}</ol>,
+                      li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+                      h1: ({ children }) => <h1 className="mb-1 text-base font-bold">{children}</h1>,
+                      h2: ({ children }) => <h2 className="mb-1 text-sm font-bold">{children}</h2>,
+                      h3: ({ children }) => <h3 className="mb-1 text-sm font-semibold">{children}</h3>,
+                      code: ({ children }) => <code className="px-1 py-0.5 bg-gray-100 rounded text-xs font-mono">{children}</code>,
+                    }}
+                  >
+                    {text}
+                  </ReactMarkdown>
+                ) : (
+                  text
+                )}
               </div>
             )
           })}
