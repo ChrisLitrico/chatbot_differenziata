@@ -90,9 +90,7 @@ ${ragContext}`
     // Stream verso il modello Perplexity configurato (mantiene la cronologia e aggiunge il contesto come system prompt)
     // Filter to only roles Perplexity accepts (drops 'data' and other AI SDK v5 internal roles)
     const PERPLEXITY_ROLES = new Set(['system', 'user', 'assistant', 'tool'])
-    const modelMessages = convertToModelMessages(messages).filter((m) =>
-      PERPLEXITY_ROLES.has(m.role)
-    )
+    const modelMessages = convertToModelMessages(messages).filter((m) => PERPLEXITY_ROLES.has(m.role))
 
     console.log('[Chat API] Starting stream with model:', MODEL_NAME)
     const result = streamText({
