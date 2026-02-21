@@ -1,5 +1,4 @@
-import { createOpenAI } from '@ai-sdk/openai'
-import { streamText, UIMessage } from 'ai'
+import { UIMessage } from 'ai'
 import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 
 // streaming responses up to 60 seconds (Netlify supports up to 26s free, 900s pro)
@@ -7,13 +6,6 @@ export const maxDuration = 60
 
 // Default: sonar (cheap, fast). Override with PERPLEXITY_MODEL env var if needed.
 const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'sonar'
-
-// Initialize Perplexity via OpenAI-compatible provider
-// .chat() forces /chat/completions endpoint (Perplexity doesn't support /responses)
-const perplexityProvider = createOpenAI({
-  apiKey: process.env.PERPLEXITY_API_KEY,
-  baseURL: 'https://api.perplexity.ai',
-})
 
 function extractMessageText(message: UIMessage | undefined): string {
   if (!message || !Array.isArray(message.parts)) {
@@ -88,24 +80,48 @@ CONTESTO:
 ${ragContext}`
 
     // Map messages to Perplexity-compatible format
-    // Convert UIMessage array to simple { role, content } that Perplexity accepts
-    const perplexityMessages: Array<{ role: 'user' | 'assistant'; content: string }> = messages
-      .filter((msg) => msg.role === 'user' || msg.role === 'assistant')
-      .map((msg) => ({
-        role: msg.role as 'user' | 'assistant',
-        content: extractMessageText(msg),
-      }))
+    const perplexityMessages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }> = [
+      { role: 'system', content: SYSTEM_TEMPLATE },
+      ...messages
+        .filter((msg) => msg.role === 'user' || msg.role === 'assistant')
+        .map((msg) => ({
+          role: msg.role as 'user' | 'assistant',
+          content: extractMessageText(msg),
+        })),
+    ]
 
-    console.log('[Chat API] Messages to send:', JSON.stringify(perplexityMessages, null, 2))
     console.log('[Chat API] Starting stream with model:', MODEL_NAME)
-    const result = streamText({
-      model: perplexityProvider.chat(MODEL_NAME),
-      system: SYSTEM_TEMPLATE,
-      messages: perplexityMessages,
+
+    // Direct HTTP call to Perplexity API (bypassing AI SDK to avoid message transformation)
+    const response = await fetch('https://api.perplexity.ai/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.PERPLEXITY_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: MODEL_NAME,
+        messages: perplexityMessages,
+        stream: true,
+      }),
     })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('[Chat API] Perplexity API error:', response.status, errorText)
+      throw new Error(`Perplexity API error: ${response.status} ${errorText}`)
+    }
+
     console.log('[Chat API] Stream started, returning response')
 
-    return result.toUIMessageStreamResponse()
+    // Return the streaming response directly (Perplexity uses SSE format like OpenAI)
+    return new Response(response.body, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        Connection: 'keep-alive',
+      },
+    })
   } catch (error) {
     console.error('[Chat API] Fatal error:', error)
     console.error('[Chat API] Error type:', error instanceof Error ? error.constructor.name : typeof error)
