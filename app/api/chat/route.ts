@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai'
-import { streamText, UIMessage, convertToModelMessages } from 'ai'
+import { streamText, UIMessage } from 'ai'
 import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 
 // streaming responses up to 60 seconds (Netlify supports up to 26s free, 900s pro)
@@ -87,16 +87,20 @@ SE NON HAI INFO SPECIFICHE NEL CONTESTO:
 CONTESTO:
 ${ragContext}`
 
-    // Stream verso il modello Perplexity configurato (mantiene la cronologia e aggiunge il contesto come system prompt)
-    // Filter to only roles Perplexity accepts (drops 'data' and other AI SDK v5 internal roles)
-    const PERPLEXITY_ROLES = new Set(['system', 'user', 'assistant', 'tool'])
-    const modelMessages = convertToModelMessages(messages).filter((m) => PERPLEXITY_ROLES.has(m.role))
+    // Map messages to Perplexity-compatible format
+    // Convert UIMessage array to simple { role, content } that Perplexity accepts
+    const perplexityMessages: Array<{ role: 'user' | 'assistant'; content: string }> = messages
+      .filter((msg) => msg.role === 'user' || msg.role === 'assistant')
+      .map((msg) => ({
+        role: msg.role as 'user' | 'assistant',
+        content: extractMessageText(msg),
+      }))
 
     console.log('[Chat API] Starting stream with model:', MODEL_NAME)
     const result = streamText({
       model: perplexityProvider.chat(MODEL_NAME),
       system: SYSTEM_TEMPLATE,
-      messages: modelMessages,
+      messages: perplexityMessages,
     })
     console.log('[Chat API] Stream started, returning response')
 
