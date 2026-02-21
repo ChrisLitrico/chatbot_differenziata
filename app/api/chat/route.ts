@@ -96,6 +96,7 @@ ${ragContext}`
         content: extractMessageText(msg),
       }))
 
+    console.log('[Chat API] Messages to send:', JSON.stringify(perplexityMessages, null, 2))
     console.log('[Chat API] Starting stream with model:', MODEL_NAME)
     const result = streamText({
       model: perplexityProvider.chat(MODEL_NAME),
