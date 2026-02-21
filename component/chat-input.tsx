@@ -1,7 +1,18 @@
 import { useState, useRef } from 'react'
 import { IoSend } from 'react-icons/io5'
+import { HiOutlinePlus } from 'react-icons/hi'
 
-export default function ChatInput({ status, onSubmit }: { status: 'ready' | 'submitted' | 'streaming' | 'error'; onSubmit: (text: string) => void }) {
+export default function ChatInput({
+  status,
+  onSubmit,
+  hasMessages = false,
+  onNewChat,
+}: {
+  status: 'ready' | 'submitted' | 'streaming' | 'error'
+  onSubmit: (text: string) => void
+  hasMessages?: boolean
+  onNewChat?: () => void
+}) {
   const [text, setText] = useState('')
   const isDisabled = status === 'submitted' || status === 'streaming'
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -16,8 +27,18 @@ export default function ChatInput({ status, onSubmit }: { status: 'ready' | 'sub
   }
 
   return (
-    <form className="w-full " onSubmit={handleSubmit}>
+    <form className="w-full" onSubmit={handleSubmit}>
       <div className="chat-input-wrapper flex gap-3 border border-gray-300 rounded-full bg-purple-50 shadow-md px-4 py-1.5 transition-all">
+        {hasMessages && (
+          <button
+            type="button"
+            onClick={onNewChat}
+            title="Nuova chat"
+            className="flex items-center justify-center w-8 h-8 text-white transition-all rounded-full bg-violet-500 hover:bg-violet-600 active:scale-90 shrink-0 animate-fade-slide-in"
+          >
+            <HiOutlinePlus className="text-base" />
+          </button>
+        )}
         <input
           className="w-full bg-transparent rounded-md py-1.5 text-sm focus:outline-none placeholder:text-gray-400"
           placeholder="Qualche dubbio sui tuoi rifiuti?"

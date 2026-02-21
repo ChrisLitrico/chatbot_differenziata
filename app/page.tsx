@@ -4,7 +4,6 @@ import { useChat } from '@ai-sdk/react'
 import ChatInput from '@/component/chat-input'
 import React, { useRef, useCallback } from 'react'
 import { RiRobot3Fill } from 'react-icons/ri'
-import { HiOutlinePlusCircle } from 'react-icons/hi'
 import useSmoothScrollToBottom from '@/hooks/useSmoothScrollToBottom'
 import ReactMarkdown from 'react-markdown'
 
@@ -47,18 +46,6 @@ export default function Chat() {
 
   return (
     <div className={`w-screen min-h-screen ${messages.length === 0 ? 'overflow-y-hidden' : ''}`}>
-      {/* New Chat button - visible when there are messages */}
-      {messages.length > 0 && (
-        <button
-          type="button"
-          onClick={handleNewChat}
-          className="fixed top-4 right-4 z-50 flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-violet-700 bg-white/80 backdrop-blur-sm border border-violet-200 rounded-full shadow-md hover:bg-violet-50 hover:border-violet-300 active:scale-95 transition-all animate-fade-slide-in"
-        >
-          <HiOutlinePlusCircle className="text-lg" />
-          New
-        </button>
-      )}
-
       <div className="flex flex-col w-[92%] sm:w-[80%] md:w-[65%] lg:w-[55%] mx-auto stretch pb-20 sm:pb-16">
         {messages
           .filter((msg) => {
@@ -165,6 +152,8 @@ export default function Chat() {
           <div className={messages.length === 0 ? 'w-full max-w-2xl animate-fade-slide-in' : 'w-full'}>
             <ChatInput
               status={status}
+              hasMessages={messages.length > 0}
+              onNewChat={handleNewChat}
               onSubmit={(text) =>
                 sendMessage({
                   text,
