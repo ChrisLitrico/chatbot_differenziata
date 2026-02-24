@@ -86,6 +86,11 @@ export default function Chat() {
                         h2: ({ children }) => <h2 className="mb-1 text-sm font-bold">{children}</h2>,
                         h3: ({ children }) => <h3 className="mb-1 text-sm font-semibold">{children}</h3>,
                         code: ({ children }) => <code className="px-1 py-0.5 bg-gray-100 rounded text-xs font-mono">{children}</code>,
+                        a: ({ href, children }) => (
+                          <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800 transition-colors">
+                            {children}
+                          </a>
+                        ),
                       }}
                     >
                       {text}

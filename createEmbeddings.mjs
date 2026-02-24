@@ -152,6 +152,42 @@ async function connectMongo() {
   }
 }
 
+/**
+ * Pre-parse a YAML file to extract top-level `fonte` URL and per-zone
+ * gestore / pagina_contatti_gestore URLs.
+ * Returns { fonte: string|null, gestori: { [zonaName]: { gestore, url } } }
+ */
+function extractFileUrls(content) {
+  const urls = { fonte: null, gestori: {} };
+
+  // Top-level fonte
+  const fonteMatch = content.match(/^fonte:\s*"?([^"\n]+?)"?\s*$/m);
+  if (fonteMatch) {
+    urls.fonte = fonteMatch[1].trim();
+  }
+
+  // Per-zone gestore + pagina_contatti_gestore
+  // Split on each zone entry ("  - zona:") to isolate zone blocks
+  const zoneBlocks = content.split(/\n\s*-\s*zona:/);
+  for (let i = 1; i < zoneBlocks.length; i++) {
+    const block = zoneBlocks[i];
+    // First non-empty line after the split is the zone name
+    const zonaNameMatch = block.match(/^\s*"?([^"\n]+?)"?\s*$/m);
+    const gestoreMatch = block.match(/\bgestore:\s*"?([^"\n]+?)"?\s*$/m);
+    const urlMatch = block.match(/pagina_contatti_gestore:\s*"?([^"\n]+?)"?\s*$/m);
+
+    if (zonaNameMatch) {
+      const zonaName = zonaNameMatch[1].trim();
+      urls.gestori[zonaName] = {
+        gestore: gestoreMatch ? gestoreMatch[1].trim() : null,
+        pagina_contatti_gestore: urlMatch ? urlMatch[1].trim() : null,
+      };
+    }
+  }
+
+  return urls;
+}
+
 function extractMetadata(text, fileName) {
   const normalizedFile = fileName.toLowerCase();
 
@@ -344,9 +380,51 @@ async function main() {
         separators: ["\n## ", "\n### ", "\n---", "\n\n"],
       });
 
+      // Pre-parse URLs from YAML files
+      const isYaml = fileName.endsWith(".yaml") || fileName.endsWith(".yml");
+      const fileUrls = isYaml ? extractFileUrls(document) : { fonte: null, gestori: {} };
+
+      // For .md files, try to extract inline URLs as fallback
+      if (!isYaml) {
+        const mdFonteMatch = document.match(/\]\((https?:\/\/[^)]+)\)/);
+        if (mdFonteMatch) {
+          fileUrls.fonte = mdFonteMatch[1].trim();
+        }
+      }
+
       // Applica metadata a tutti i chunks
       chunks.forEach((c) => {
         c.metadata = extractMetadata(c.pageContent, fileName);
+      });
+
+      // Inject URL metadata from the file-level parse
+      chunks.forEach((c) => {
+        if (fileUrls.fonte) {
+          c.metadata.fonte = fileUrls.fonte;
+        }
+
+        // Match zona to the correct gestore URL
+        const chunkZona = c.metadata.zona;
+        if (chunkZona && Object.keys(fileUrls.gestori).length > 0) {
+          // Try to find a matching zone (e.g. chunk zona "Nord" matches "Catania Nord")
+          const matchingKey = Object.keys(fileUrls.gestori).find((k) =>
+            k.toLowerCase().includes(chunkZona.toLowerCase())
+          );
+          if (matchingKey) {
+            const g = fileUrls.gestori[matchingKey];
+            if (g.gestore) c.metadata.gestore = g.gestore;
+            if (g.pagina_contatti_gestore) c.metadata.pagina_contatti_gestore = g.pagina_contatti_gestore;
+          }
+        }
+
+        // If no zona-specific URL found but there's only one gestore, use that
+        if (!c.metadata.pagina_contatti_gestore) {
+          const allGestori = Object.values(fileUrls.gestori).filter((g) => g.pagina_contatti_gestore);
+          if (allGestori.length === 1) {
+            c.metadata.gestore = allGestori[0].gestore;
+            c.metadata.pagina_contatti_gestore = allGestori[0].pagina_contatti_gestore;
+          }
+        }
       });
 
       // Validazione e logging

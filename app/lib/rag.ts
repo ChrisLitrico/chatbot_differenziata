@@ -364,9 +364,23 @@ export function formatRagContext(docs: RetrievedDoc[]): string {
     .map((doc, index) => {
       const comune = metadataValue(doc.metadata, 'comune')
       const zona = metadataValue(doc.metadata, 'zona')
+      const fonte = metadataValue(doc.metadata, 'fonte')
+      const gestore = metadataValue(doc.metadata, 'gestore')
+      const paginaGestore = metadataValue(doc.metadata, 'pagina_contatti_gestore')
+
       const location = [comune, zona].filter(Boolean).join(' - ') || 'N/D'
       const content = compactText(doc.pageContent)
-      return `[${index + 1}] ${location}\n${content}`
+
+      const sourceLines: string[] = []
+      if (fonte) sourceLines.push(`Fonte ufficiale: ${fonte}`)
+      if (gestore && paginaGestore) {
+        sourceLines.push(`Gestore (${gestore}): ${paginaGestore}`)
+      } else if (paginaGestore) {
+        sourceLines.push(`Contatti gestore: ${paginaGestore}`)
+      }
+
+      const sourcePart = sourceLines.length ? `\n${sourceLines.join('\n')}` : ''
+      return `[${index + 1}] ${location}\n${content}${sourcePart}`
     })
     .join('\n\n')
 }
