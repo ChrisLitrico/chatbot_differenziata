@@ -10,15 +10,11 @@
     "embed": "node createEmbeddings.mjs"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^2.0.10",
-    "@ai-sdk/openai-compatible": "^2.0.30",
     "@ai-sdk/react": "^2.0.10",
-    "@langchain/core": "^0.3.68",
     "@langchain/openai": "^0.6.7",
-    "ai": "5.0.10",
+    "ai": "5.0.136",
     "autoprefixer": "^10.4.14",
     "dotenv": "^16.3.1",
-    "langchain": "^0.3.30",
     "mongodb": "^5.9.0",
     "next": "^15.4.6",
     "postcss": "^8.4.23",

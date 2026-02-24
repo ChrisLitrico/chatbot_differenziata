@@ -29,7 +29,7 @@ export default function ChatInput({
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Auto-grow textarea like Claude/GPT/DeepSeek
+  // Auto-grow textarea
   useEffect(() => {
     const el = textareaRef.current
     if (!el) return

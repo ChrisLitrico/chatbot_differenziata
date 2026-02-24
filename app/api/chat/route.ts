@@ -25,19 +25,13 @@ function extractMessageText(message: UIMessage | undefined): string {
 
 export async function POST(req: Request) {
   try {
-    console.log('[Chat API] Starting request...')
-    console.log('[Chat API] MODEL_NAME:', MODEL_NAME)
-    console.log('[Chat API] PERPLEXITY_API_KEY exists:', !!process.env.PERPLEXITY_API_KEY)
-
     const { messages }: { messages: UIMessage[] } = await req.json()
     if (!Array.isArray(messages) || messages.length === 0) {
       return Response.json({ error: 'Invalid messages payload.' }, { status: 400 })
     }
 
     const lastMessage = messages[messages.length - 1]
-    console.log('[Chat API] Last message role:', lastMessage?.role, 'parts:', JSON.stringify(lastMessage?.parts)?.slice(0, 200))
     const currentMessageContent = extractMessageText(lastMessage)
-    console.log('[Chat API] Extracted content:', currentMessageContent?.slice(0, 100))
     if (!currentMessageContent) {
       return Response.json({ error: 'Missing message content.' }, { status: 400 })
     }
@@ -45,10 +39,7 @@ export async function POST(req: Request) {
     // RAG context
     let ragContext = 'Nessun documento rilevante recuperato.'
     try {
-      console.log('[Chat API] Retrieving documents...')
-      const startTime = Date.now()
       const vectorSearchDocs = await retrieveRelevantDocuments(currentMessageContent)
-      console.log('[Chat API] Documents retrieved in', Date.now() - startTime, 'ms, found:', vectorSearchDocs.length)
       ragContext = formatRagContext(vectorSearchDocs)
     } catch (vectorError) {
       console.error('[Chat API] Vector search error:', vectorError)
@@ -61,10 +52,15 @@ AMBITO:
 - Per qualsiasi domanda fuori tema (ricette, sport, politica, matematica, programmazione, ecc.), rispondi ESCLUSIVAMENTE con: "Mi dispiace, posso aiutarti solo con domande sulla raccolta differenziata e lo smaltimento dei rifiuti in Sicilia. Chiedimi pure qualcosa su questo tema! ♻️"
 - NON rispondere MAI a domande non correlate ai rifiuti/riciclo, nemmeno parzialmente.
 
+REGOLA FONDAMENTALE SUL CONTESTO:
+- Il CONTESTO sotto contiene più documenti recuperati. Usa SOLO le parti direttamente pertinenti alla domanda dell'utente.
+- IGNORA completamente le informazioni del contesto che non c'entrano con la domanda. Non menzionarle, nemmeno come nota o avvertenza.
+- NON mischiare informazioni di documenti diversi se non sono correlati alla stessa domanda.
+
 STILE:
 - Rispondi in modo naturale e conciso, come parleresti a un amico
 - Evita ripetizioni: non ripetere zona/comune se già chiari dal contesto
-- Usa emoji per i tipi di rifiuto:🍠 organico, 📦 carta, 🪣 plastica, 🫙 vetro, 🗑️ indifferenziato
+- Usa emoji per i tipi di rifiuto: � organico, 📦 carta, 🪣 plastica, 🫙 vetro, 🗑️ indifferenziato
 
 FORMATO:
 - Vai dritto al punto con le info essenziali
@@ -73,11 +69,11 @@ FORMATO:
 
 FONTI E LINK:
 - Alla fine della risposta, aggiungi UNA SOLA sezione "📎 Link utili:" con i link pertinenti dal contesto, formattati come link Markdown: [Nome](URL)
-- NON inserire link anche nel corpo del testo: mettili SOLO nella sezione "📎 Link utili:" finale per evitare duplicati
-- Se l'utente chiede info che non hai, suggerisci comunque il sito ufficiale del comune se presente nel contesto
+- NON inserire link nel corpo del testo: mettili SOLO nella sezione finale
+- Se l'utente chiede info che non hai, suggerisci il sito ufficiale del comune se presente nel contesto
 
 SE NON HAI INFO SPECIFICHE NEL CONTESTO:
-- Se la domanda è pertinente ai rifiuti ma non hai dati specifici, fornisci indicazioni generali sul riciclo specificando che sono generiche
+- Se la domanda è pertinente ai rifiuti ma non hai dati specifici, fornisci indicazioni generali specificando che sono generiche
 - Suggerisci di consultare il sito ufficiale del gestore o di contattarli direttamente se hai il link
 - Solo se non puoi aiutare: "Non ho questa informazione. Contatta il gestore della tua zona."
 
@@ -95,9 +91,7 @@ ${ragContext}`
         })),
     ]
 
-    console.log('[Chat API] Starting stream with model:', MODEL_NAME)
-
-    // Call Perplexity directly
+    // Call Perplexity
     const perplexityRes = await fetch('https://api.perplexity.ai/chat/completions', {
       method: 'POST',
       headers: {
@@ -112,10 +106,7 @@ ${ragContext}`
       throw new Error(`Perplexity error ${perplexityRes.status}: ${err}`)
     }
 
-    console.log('[Chat API] Stream started, returning response')
-
-    // Re-format Perplexity SSE into the AI SDK v5 UIMessageStream protocol
-    // that useChat() from @ai-sdk/react expects
+    // Re-format Perplexity SSE into AI SDK v5 UIMessageStream protocol
     const messageId = crypto.randomUUID()
     const textPartId = crypto.randomUUID()
 
@@ -201,10 +192,7 @@ ${ragContext}`
       },
     })
   } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error)
-    const stack = error instanceof Error ? error.stack : undefined
-    console.error('[Chat API] Fatal error:', msg)
-    if (stack) console.error('[Chat API] Stack:', stack)
-    return new Response(JSON.stringify({ error: 'Internal server error', detail: msg }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+    console.error('[Chat API] Error:', error instanceof Error ? error.message : error)
+    return Response.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

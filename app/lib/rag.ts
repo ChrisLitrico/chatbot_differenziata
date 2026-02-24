@@ -147,18 +147,14 @@ async function vectorSearch(query: string): Promise<RetrievedDoc[]> {
   }
 
   console.log('[RAG] Connecting to MongoDB...')
-  const t0 = Date.now()
   const collection = await getCollection()
-  console.log('[RAG] MongoDB connected in', Date.now() - t0, 'ms')
 
   const limit = FETCH_RESULTS
 
   // 1. Genera embedding
   let queryEmbedding: number[]
   try {
-    const t1 = Date.now()
     queryEmbedding = await getEmbeddingsModel().embedQuery(normalizedQuery)
-    console.log('[RAG] Embedding generated in', Date.now() - t1, 'ms')
   } catch (embeddingError) {
     console.error('[RAG] embedding generation failed:', embeddingError)
     return await textFallbackSearch(normalizedQuery)
@@ -195,9 +191,7 @@ async function vectorSearch(query: string): Promise<RetrievedDoc[]> {
       },
     ]
 
-    const t2 = Date.now()
     const docs = (await collection.aggregate(pipeline).toArray()) as Record<string, unknown>[]
-    console.log('[RAG] vectorSearch completed in', Date.now() - t2, 'ms, docs:', docs.length)
 
     const result = docs.map(toRetrievedDoc).filter((doc) => doc.pageContent)
     if (result.length > 0) {
@@ -313,12 +307,9 @@ export async function retrieveRelevantDocuments(query: string): Promise<Retrieve
     const targetComune = detectComuneFromQuery(normalizedQuery)
     const targetZona = detectZonaFromQuery(normalizedQuery)
 
-    console.log('[RAG] Query:', normalizedQuery, '| comune:', targetComune, '| zona:', targetZona)
-
     // Vector search senza filtri (il vector index non ha filter fields)
     // Post-filtriamo per comune/zona sui risultati
     const baseDocs = await vectorSearch(normalizedQuery)
-    console.log('[RAG] Retrieved', baseDocs.length, 'documents')
 
     if (!targetComune && !targetZona) {
       return dedupeDocuments(baseDocs).slice(0, MAX_RESULTS)
