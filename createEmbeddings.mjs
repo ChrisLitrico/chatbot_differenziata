@@ -363,7 +363,7 @@ async function main() {
   const embeddingsModel = new OpenAIEmbeddings({
     modelName: process.env.EMBEDDING_MODEL || "text-embedding-3-small",
   });
-  const docs_dir = "_assets/gestione_rifiuti_docs";
+  const docs_dir = "data/gestione_rifiuti_docs";
   const fileNames = await fsp.readdir(docs_dir);
 
   console.log(`🔌 MongoDB connesso: ${extractHostFromMongoUri(activeUri)}`);

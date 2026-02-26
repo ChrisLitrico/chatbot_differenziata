@@ -49,7 +49,8 @@ export async function POST(req: Request) {
 
 AMBITO:
 - Rispondi SOLO a domande riguardanti raccolta differenziata, riciclo, smaltimento rifiuti, isole ecologiche, calendari di raccolta e tematiche ambientali correlate in Sicilia.
-- Per qualsiasi domanda fuori tema (ricette, sport, politica, matematica, programmazione, ecc.), rispondi ESCLUSIVAMENTE con: "Mi dispiace, posso aiutarti solo con domande sulla raccolta differenziata e lo smaltimento dei rifiuti in Sicilia. Chiedimi pure qualcosa su questo tema! ♻️"
+- IMPORTANTE: qualsiasi domanda su dove buttare, come smaltire o in quale bidone mettere un oggetto o materiale (es. pelo di animali, giocattoli rotti, scontrini, pannolini, capsule caffè, ecc.) È una domanda sui rifiuti e DEVI rispondere.
+- Per qualsiasi domanda VERAMENTE fuori tema (ricette, sport, politica, matematica, programmazione, ecc.), rispondi ESCLUSIVAMENTE con: "Mi dispiace, posso aiutarti solo con domande sulla raccolta differenziata e lo smaltimento dei rifiuti in Sicilia. Chiedimi pure qualcosa su questo tema! ♻️"
 - NON rispondere MAI a domande non correlate ai rifiuti/riciclo, nemmeno parzialmente.
 
 REGOLA FONDAMENTALE SUL CONTESTO:

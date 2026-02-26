@@ -1,8 +1,8 @@
 'use client'
 
 import { useChat } from '@ai-sdk/react'
-import ChatInput from '@/component/chat-input'
-import React, { useRef, useCallback } from 'react'
+import ChatInput from '@/components/chat-input'
+import { useCallback } from 'react'
 import useSmoothScrollToBottom from '@/hooks/useSmoothScrollToBottom'
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
@@ -36,7 +36,6 @@ function TypingDots() {
 
 export default function Chat() {
   const { error, status, sendMessage, messages, regenerate, stop, setMessages } = useChat()
-  const scrollRef = useRef<HTMLDivElement | null>(null)
   useSmoothScrollToBottom(messages, status)
 
   const handleNewChat = useCallback(() => {
@@ -60,7 +59,7 @@ export default function Chat() {
             const isEmpty = text.trim() === ''
 
             return (
-              <div ref={scrollRef} key={uiMessage.id} className={`mb-3 text-sm leading-relaxed flex ${uiMessage.role === 'user' ? 'justify-end' : 'justify-start items-start gap-2'}`}>
+              <div key={uiMessage.id} className={`mb-3 text-sm leading-relaxed flex ${uiMessage.role === 'user' ? 'justify-end' : 'justify-start items-start gap-2'}`}>
                 {uiMessage.role === 'assistant' && !isEmpty && (
                   <Image src="/logo-chatbot.png" alt="Garby" width={40} height={40} style={{ width: 'auto', height: 'auto' }} className="mt-2 rounded-full shrink-0" />
                 )}
