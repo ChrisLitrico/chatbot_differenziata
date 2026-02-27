@@ -1,15 +1,15 @@
-comune: "Catania"
-provincia: "Catania"
-regione: "Sicilia"
-last_updated: "2025-08-18"
-fonte: "https://www.srrcataniametropolitana.it/differenziamocatania/"
+comune: 'Catania'
+provincia: 'Catania'
+regione: 'Sicilia'
+last_updated: '2025-08-18'
+fonte: 'https://www.srrcataniametropolitana.it/differenziamocatania/'
 
-orari_conferimento: "I materiali vanno esposti in prossimità del proprio numero civico dalle ore 22.00 alle ore 5.00 della sera precedente del giorno di raccolta."
+orari_conferimento: 'I materiali vanno esposti in prossimità del proprio numero civico dalle ore 22.00 alle ore 5.00 della sera precedente del giorno di raccolta.'
 
 zone:
-  - zona: "Catania Nord"
-    gestore: "Supereco"
-    pagina_contatti_gestore: "https://www.superecosrl.com/public/comune-di-catania"
+  - zona: 'Catania Nord'
+    gestore: 'Supereco'
+    pagina_contatti_gestore: 'https://www.superecosrl.com/public/comune-di-catania'
     raccolta:
       umido: [martedì, giovedì, sabato]
       carta: [mercoledì]
@@ -17,9 +17,9 @@ zone:
       vetro: [giovedì]
       indifferenziato: [venerdì]
 
-  - zona: "Catania Centro"
-    gestore: "Gema spa"
-    pagina_contatti_gestore: "https://www.gema-spa.com/contatti/"
+  - zona: 'Catania Centro'
+    gestore: 'Gema spa'
+    pagina_contatti_gestore: 'https://www.gema-spa.com/contatti/'
     raccolta:
       umido: [lunedì, mercoledì, venerdì]
       carta: [martedì]
@@ -27,9 +27,9 @@ zone:
       vetro: [mercoledì]
       indifferenziato: [giovedì]
 
-  - zona: "Catania Sud"
-    gestore: "Ecocar"
-    pagina_contatti_gestore: "https://www.ecocarprovinciactnord.it/contatti/"
+  - zona: 'Catania Sud'
+    gestore: 'Ecocar'
+    pagina_contatti_gestore: 'https://www.ecocarprovinciactnord.it/contatti/'
     raccolta:
       umido: [martedì, giovedì, sabato]
       carta: [mercoledì]
@@ -41,111 +41,96 @@ categorie:
   umido:
     contenitore: marrone
     conferimento:
-      - "Sacco biodegradabile nel mastello/carrellato con coperchio marrone"
-      - "Isole ecologiche"
+      - 'Sacco biodegradabile nel mastello/carrellato con coperchio marrone'
+      - 'Isole ecologiche'
     ammessi:
-      - "Scarti alimentari: avanzi di cucina cotti o crudi, scarti di frutta e verdura, residui di pane"
-      - "Organici: gusci di uova e ossa, fondi di caffè e filtri, avanzi di carne, pesce, salumi"
-      - "Altri: segatura e truccioli, fazzoletti di carta unti, cenere"
+      - 'Scarti alimentari: avanzi di cucina cotti o crudi, scarti di frutta e verdura, residui di pane'
+      - 'Organici: gusci di uova e ossa, fondi di caffè e filtri, avanzi di carne, pesce, salumi'
+      - 'Altri: segatura e truccioli, fazzoletti di carta unti, cenere'
     rifiutati:
-      - "Stoviglie: piatti e bicchieri di carta"
-      - "Speciali: carcasse di animali, olio di frittura"
-      - "Igienici: pannolini ed assorbenti"
-      - "Altri: grandi quantità di ossa e gusci di mare, cibi ancora caldi"
+      - 'Stoviglie: piatti e bicchieri di carta'
+      - 'Speciali: carcasse di animali, olio di frittura'
+      - 'Igienici: pannolini ed assorbenti'
+      - 'Altri: grandi quantità di ossa e gusci di mare, cibi ancora caldi'
 
   carta:
     contenitore: blu
     conferimento:
-      - "Sfuso o in sacco di carta nel mastello/carrello con coperchio blu"
-      - "Isole ecologiche in sacchi trasparenti"
-      - "Cartoni per bevande: puliti e schiacciati"
+      - 'Sfuso o in sacco di carta nel mastello/carrello con coperchio blu'
+      - 'Isole ecologiche in sacchi trasparenti'
+      - 'Cartoni per bevande: puliti e schiacciati'
     ammessi:
-      - "Imballaggi: sacchetti di carta, scatole, imballaggi di cartone e cartoncino"
-      - "Contenitori: tetra pak, cartoni per bevande e prodotti alimentari"
-      - "Carta pulita: carta da pacchi, giornali, riviste, quaderni"
+      - 'Imballaggi: sacchetti di carta, scatole, imballaggi di cartone e cartoncino'
+      - 'Contenitori: tetra pak, cartoni per bevande e prodotti alimentari'
+      - 'Carta pulita: carta da pacchi, giornali, riviste, quaderni'
     rifiutati:
-      - "Carta sporca: fazzolettini e tovaglioli usati, cartoni della pizza sporchi"
-      - "Carta trattata: scontrini fiscali di carta termica, carta chimica per fax"
-      - "Carta speciale: oleata, plastificata"
+      - 'Carta sporca: fazzolettini e tovaglioli usati, cartoni della pizza sporchi'
+      - 'Carta trattata: scontrini fiscali di carta termica, carta chimica per fax'
+      - 'Carta speciale: oleata, plastificata'
 
   plastica_e_metalli:
     contenitore: giallo
     conferimento:
-      - "Sacchi trasparenti nel mastello/carrellato con coperchio giallo"
-      - "Isole ecologiche in sacchi trasparenti"
+      - 'Sacchi trasparenti nel mastello/carrellato con coperchio giallo'
+      - 'Isole ecologiche in sacchi trasparenti'
     ammessi:
-      - "Contenitori plastica: bottiglie e flaconi, buste e pellicole, vaschette e vasetti per yogurt"
-      - "Stoviglie plastica: piatti e bicchieri (non posate)"
-      - "Metalli: lattine e vaschette in alluminio, fogli sottili, scatolette, barattoli e contenitori metallici"
+      - 'Contenitori plastica: bottiglie e flaconi, buste e pellicole, vaschette e vasetti per yogurt'
+      - 'Stoviglie plastica: piatti e bicchieri (non posate)'
+      - 'Metalli: lattine e vaschette in alluminio, fogli sottili, scatolette, barattoli e contenitori metallici'
     rifiutati:
-      - "Plastica non imballaggio: posate, giocattoli, penne e pennarelli, spazzolini da denti"
-      - "Metalli grandi: oggetti in metallo, pentole e posate, fili di ferro"
+      - 'Plastica non imballaggio: posate, giocattoli, penne e pennarelli, spazzolini da denti'
+      - 'Metalli grandi: oggetti in metallo, pentole e posate, fili di ferro'
 
   vetro:
     contenitore: verde
     conferimento:
-      - "Senza sacco nel mastello/carrellato con coperchio verde"
-      - "Imballaggi puliti"
-      - "Isole ecologiche in sacchi trasparenti"
+      - 'Senza sacco nel mastello/carrellato con coperchio verde'
+      - 'Imballaggi puliti'
+      - 'Isole ecologiche in sacchi trasparenti'
     ammessi:
-      - "Contenitori: bottiglie e vasetti"
+      - 'Contenitori: bottiglie e vasetti'
     rifiutati:
-      - "Illuminazione: lampadine e lampade al neon"
-      - "Oggetti: specchi, lastre vetro"
-      - "Ceramiche: oggetti in ceramica e porcellana"
+      - 'Illuminazione: lampadine e lampade al neon'
+      - 'Oggetti: specchi, lastre vetro'
+      - 'Ceramiche: oggetti in ceramica e porcellana'
 
   indifferenziato:
     contenitore: grigio
     conferimento:
-      - "Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio"
+      - 'Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio'
     ammessi:
-      - "Materiali vari: carta plastificata, gomma"
-      - "Supporti: CD, blu-ray, musicassette, VHS"
-      - "Ceramiche: ceramica, porcellana, terracotta"
+      - 'Materiali vari: carta plastificata, gomma'
+      - 'Supporti: CD, blu-ray, musicassette, VHS'
+      - 'Ceramiche: ceramica, porcellana, terracotta'
     rifiutati:
-      - "Materiali riciclabili"
-      - "Speciali: pile e farmaci, materiale edile, batterie auto"
-      - "Organici: sfalci di potatura"
-      - "Elettronici: apparecchiature elettroniche"
-      - "Pericolosi: materiali tossici o pericolosi"
-
-  residuale:
-    contenitore: grigio
-    conferimento:
-      - "Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio"
-    ammessi:
-      - "Materiali vari: carta plastificata, gomma"
-      - "Supporti: CD, blu-ray, musicassette, VHS"
-      - "Ceramiche: ceramica, porcellana, terracotta"
-    rifiutati:
-      - "Materiali riciclabili"
-      - "Speciali: pile e farmaci, materiale edile, batterie auto"
-      - "Organici: sfalci di potatura"
-      - "Elettronici: apparecchiature elettroniche"
-      - "Pericolosi: materiali tossici o pericolosi"
+      - 'Materiali riciclabili'
+      - 'Speciali: pile e farmaci, materiale edile, batterie auto'
+      - 'Organici: sfalci di potatura'
+      - 'Elettronici: apparecchiature elettroniche'
+      - 'Pericolosi: materiali tossici o pericolosi'
 
 altri_rifiuti:
   ingombranti_raee:
-    modalità: "Ritiro su strada presso il proprio civico previa prenotazione al numero verde o conferimento diretto alle isole ecologiche"
-    esempi: "Suppellettili ed elettrodomestici"
+    modalità: 'Ritiro su strada presso il proprio civico previa prenotazione al numero verde o conferimento diretto alle isole ecologiche'
+    esempi: 'Suppellettili ed elettrodomestici'
 
   abiti_usati_pellame:
-    modalità: "Conferimento diretto alle isole ecologiche negli orari di apertura"
-    esempi: "Abiti usati, stracci, scarpe, borse, pellame"
+    modalità: 'Conferimento diretto alle isole ecologiche negli orari di apertura'
+    esempi: 'Abiti usati, stracci, scarpe, borse, pellame'
 
   inerti:
-    modalità: "Piccole demolizioni (max 0.6 mc) alle isole ecologiche negli orari di apertura"
+    modalità: 'Piccole demolizioni (max 0.6 mc) alle isole ecologiche negli orari di apertura'
 
   sfalci_potature:
-    modalità: "Conferimento alle isole ecologiche negli orari di apertura"
+    modalità: 'Conferimento alle isole ecologiche negli orari di apertura'
 
   pannolini_pannoloni:
     modalità: "Raccolta anche il venerdì su richiesta dell'utente al numero verde"
-    esempi: "Pannolini, pannoloni e traverse"
+    esempi: 'Pannolini, pannoloni e traverse'
 
   oli_vegetali:
-    modalità: "Conferimento presso isole ecologiche"
-    note: "Solo oli vegetali di provenienza domestica"
+    modalità: 'Conferimento presso isole ecologiche'
+    note: 'Solo oli vegetali di provenienza domestica'
 
   pile_farmaci:
-    modalità: "Conferimento presso farmacie, rivendite pile o isole ecologiche"
+    modalità: 'Conferimento presso farmacie, rivendite pile o isole ecologiche'

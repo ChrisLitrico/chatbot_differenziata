@@ -1,13 +1,22 @@
 {
-  "mappings": {
-    "dynamic": true,
-    "fields": {
-      "embedding": {
-        "dimensions": 1536,
-        "similarity": "cosine",
-        "type": "vector",
-        "path": "docs.embedding"
-      }
+  "fields": [
+    {
+      "type": "vector",
+      "path": "embedding",
+      "numDimensions": 1536,
+      "similarity": "cosine"
+    },
+    {
+      "type": "filter",
+      "path": "comune"
+    },
+    {
+      "type": "filter",
+      "path": "tipo"
+    },
+    {
+      "type": "filter",
+      "path": "zona"
     }
-  }
+  ]
 }

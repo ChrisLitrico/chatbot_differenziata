@@ -1,8 +1,8 @@
 comune: Catania
 provincia: Catania
 tipo: isole_ecologiche
-last_updated: "2025-08-18"
-fonte: "https://www.srrcataniametropolitana.it/differenziamocatania/"
+last_updated: '2025-08-18'
+fonte: 'https://www.srrcataniametropolitana.it/differenziamocatania/'
 
 isole:
   - nome: Aci Bonaccorsi
@@ -58,7 +58,7 @@ isole:
 
 rifiuti_ammessi:
   umido: [scarti alimentari, fondi di caffè, gusci d’uovo]
-  carta_e_cartone: [carta sporca, tetra pak, cartoni bevande]
+  carta_e_cartone: [carta pulita, tetra pak, cartoni bevande]
   plastica_e_metalli: [bottiglie, flaconi, lattine, vaschette]
   vetro: [bottiglie, vasetti]
   indifferenziato: [materiali non riciclabili]

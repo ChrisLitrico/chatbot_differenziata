@@ -23,29 +23,35 @@ Fonte ufficiale: [Siracusa a raccolta](https://www.comune.siracusa.it/)
 
 ---
 
-## ♻️ Dettagli per tipologia di rifiuto
+## ♻️ Dettagli per tipologia di rifiuto - Siracusa
 
 ### 🍕 Umido/Organico
+
 ✅ Si può gettare: scarti alimentari, scarti organici, fondi caffè/tè, gusci d'uovo, salviette compostabili  
 ❌ Non si può gettare: materiali non organici, pannolini, legno trattato, liquidi, polveri o filtri di aspirazione, contenitori per cibi, mozziconi di sigaretta, plastica biodegradabile ma non compostabile
 
 ### 📦 Carta
+
 ✅ Si può gettare: carta, giornali, libri, scatole, tetrapak puliti  
 ❌ Non si può gettare: carta sporca/unta, plastificata, stoviglie di carta
 
 ### 🪣 Plastica e Metalli
+
 ✅ Si può gettare: bottiglie, flaconi, vaschette, lattine, sacchetti, grucce  
 ❌ Non si può gettare: posate monouso, oggetti non da imballaggio, ferro vecchio, bacinelle, pennarelli, occhiali, siringhe
 
 ### 🫙 Vetro
+
 ✅ Si può gettare: bottiglie, vasetti, barattoli  
 ❌ Non si può gettare: lampadine, specchi, ceramiche, flebo, vetroceramica, piatti e tazzine, bicchieri, bottiglie in cristallo
 
 ### 🗑️ Indifferenziato
+
 ✅ Si può gettare: gomma, carta/plastica oleata, CD/DVD/VHS, giocattoli, pannolini, flebo vuote  
 ❌ Non si può gettare: materiali riciclabili, rifiuti tossici, rifiuti ingombranti
 
 ### 🚮 Altri rifiuti speciali
+
 - Ingombranti e RAEE: isole ecologiche
 - Abiti usati e pellame: isole ecologiche
 - Inerti: conferimento diretto alle isole ecologiche
@@ -58,6 +64,7 @@ Fonte ufficiale: [Siracusa a raccolta](https://www.comune.siracusa.it/)
 ## ❓ Hai dubbi?
 
 **Ricorda**:
+
 - Le **posate di plastica** vanno sempre nel residuale/indifferenziato
 - I **tetrapak** vanno nella carta (puliti e schiacciati)
 - Gli **oli di frittura** NON vanno nell'organico ma alle isole ecologiche
@@ -65,4 +72,5 @@ Fonte ufficiale: [Siracusa a raccolta](https://www.comune.siracusa.it/)
 - I **bicchieri** vanno nel residuale/indifferenziato, non nel vetro
 
 **Contatti gestore**:
+
 - **Tekra srl**: [Informazioni ufficiali](https://www.siracusadifferenzia.it)

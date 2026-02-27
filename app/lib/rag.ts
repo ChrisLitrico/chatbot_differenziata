@@ -32,6 +32,8 @@ const CITY_ALIASES: Record<string, string[]> = {
   Messina: ['messina'],
   Siracusa: ['siracusa', 'syracuse'],
   Ragusa: ['ragusa'],
+  Trapani: ['trapani'],
+  Agrigento: ['agrigento'],
 }
 
 const ZONE_ALIASES: Record<string, string[]> = {

@@ -1,27 +1,27 @@
-comune: "Palermo"
-provincia: "Palermo"
-regione: "Sicilia"
-last_updated: "2025-08-21"
-fonte: "https://www.rapspa.it/site/portaaporta/"
+comune: 'Palermo'
+provincia: 'Palermo'
+regione: 'Sicilia'
+last_updated: '2025-08-21'
+fonte: 'https://www.rapspa.it/site/portaaporta/'
 
-orari_conferimento: "I materiali vanno esposti in prossimità del proprio numero civico dalle ore 19:00 alle ore 22:00 della sera precedente del giorno di raccolta."
+orari_conferimento: 'I materiali vanno esposti in prossimità del proprio numero civico dalle ore 19:00 alle ore 22:00 della sera precedente del giorno di raccolta.'
 
 zone:
-  - zona: "Zona Pilota"
-    progetto: "Palermo Differenzia 1"
-    step: "1-6"
-    area_interessata: "Da nord (via Belgio; via Praga), est (viale del Fante; via Puglisi; via Campolo), sud (via Amari; via Dante; via Malaspina; via Aurispa; via Parisio), ovest (asse viale Regione Siciliana)"
+  - zona: 'Zona Pilota'
+    progetto: 'Palermo Differenzia 1'
+    step: '1-6'
+    area_interessata: 'Da nord (via Belgio; via Praga), est (viale del Fante; via Puglisi; via Campolo), sud (via Amari; via Dante; via Malaspina; via Aurispa; via Parisio), ovest (asse viale Regione Siciliana)'
     raccolta:
       umido: [lunedì, giovedì, sabato]
       carta: [venerdì]
       plastica_e_metalli: [mercoledì]
-      vetro: ["Campane stradali verdi"]
+      vetro: ['Campane stradali verdi']
       indifferenziato: [martedì]
 
-  - zona: "Palermo Strasburgo"
-    progetto: "Palermo Differenzia 2"
-    step: "1"
-    area_interessata: "Area delimitata da piazza Pantelleria, via Prezzolini, via Nuova, piazza San Lorenzo, via dei Quartieri, piazza Niscemi, viale del Fante, via Cassarà, piazza Papa Giovanni Paolo II, via De Gasperi, via Ausonia, via Praga, via Belgio, via Monti Iblei."
+  - zona: 'Palermo Strasburgo'
+    progetto: 'Palermo Differenzia 2'
+    step: '1'
+    area_interessata: 'Area delimitata da piazza Pantelleria, via Prezzolini, via Nuova, piazza San Lorenzo, via dei Quartieri, piazza Niscemi, viale del Fante, via Cassarà, piazza Papa Giovanni Paolo II, via De Gasperi, via Ausonia, via Praga, via Belgio, via Monti Iblei.'
     raccolta:
       umido: [lunedì, giovedì, sabato]
       carta: [venerdì]
@@ -29,10 +29,10 @@ zone:
       vetro: [venerdì]
       indifferenziato: [martedì]
 
-  - zona: "Palermo Politeama, Massimo"
-    progetto: "Palermo Differenzia 2"
-    step: "2"
-    area_interessata: "Da via Aurispa a piazza Virgilio, via Dante, piazza Castelnuovo, piazza Ruggiero Settimo, via Amari, via Roma, via Cavour, piazza Verdi, via Volturno, piazza Vittorio Emanuele Orlando, corso Finocchiaro Aprile, piazza Sacro Cuore, piazza Principe di Camporeale, via Serradifalco."
+  - zona: 'Palermo Politeama, Massimo'
+    progetto: 'Palermo Differenzia 2'
+    step: '2'
+    area_interessata: 'Da via Aurispa a piazza Virgilio, via Dante, piazza Castelnuovo, piazza Ruggiero Settimo, via Amari, via Roma, via Cavour, piazza Verdi, via Volturno, piazza Vittorio Emanuele Orlando, corso Finocchiaro Aprile, piazza Sacro Cuore, piazza Principe di Camporeale, via Serradifalco.'
     raccolta:
       umido: [lunedì, giovedì, sabato]
       carta: [venerdì]
@@ -40,10 +40,10 @@ zone:
       vetro: [giovedì]
       indifferenziato: [martedì]
 
-  - zona: "Palermo Borgo Vecchio, Cala, Loggia-Vucciria, Kalsa"
-    progetto: "Palermo Differenzia 2"
-    step: "3"
-    area_interessata: "Delimitata da via Crispi, via Patti, via Cala, Foro Italico Umberto I, via Lincoln, via Roma, piazza Sturzo, via Bertolino G. Puglisi, piazza Nascè, via Isidoro Carini, via Pasquale Calvi, via Albanese, via Piano dell’Ucciardone."
+  - zona: 'Palermo Borgo Vecchio, Cala, Loggia-Vucciria, Kalsa'
+    progetto: 'Palermo Differenzia 2'
+    step: '3'
+    area_interessata: 'Delimitata da via Crispi, via Patti, via Cala, Foro Italico Umberto I, via Lincoln, via Roma, piazza Sturzo, via Bertolino G. Puglisi, piazza Nascè, via Isidoro Carini, via Pasquale Calvi, via Albanese, via Piano dell’Ucciardone.'
     raccolta:
       umido: [lunedì, giovedì, sabato]
       carta: [mercoledì]
@@ -51,10 +51,10 @@ zone:
       vetro: [lunedì]
       indifferenziato: [martedì, venerdì]
 
-  - zona: "Palermo Centro Storico"
-    progetto: "Palermo Differenzia 2"
-    step: "4"
-    area_interessata: "Perimetro: piazza Vittorio Emanuele Orlando, via Volturno, piazza Verdi, via Cavour, via Roma, piazza Giulio Cesare, corso Tukory, corso Re Ruggero, piazza Indipendenza (esclusa), corso Calatafimi (fino a Porta Nuova), corso Alberto Amedeo."
+  - zona: 'Palermo Centro Storico'
+    progetto: 'Palermo Differenzia 2'
+    step: '4'
+    area_interessata: 'Perimetro: piazza Vittorio Emanuele Orlando, via Volturno, piazza Verdi, via Cavour, via Roma, piazza Giulio Cesare, corso Tukory, corso Re Ruggero, piazza Indipendenza (esclusa), corso Calatafimi (fino a Porta Nuova), corso Alberto Amedeo.'
     raccolta:
       umido: [mercoledì, venerdì, domenica]
       carta: [martedì]
@@ -62,10 +62,10 @@ zone:
       vetro: [domenica]
       indifferenziato: [lunedì, giovedì]
 
-  - zona: "Palermo Mondello, Partanna Mondello"
-    progetto: "Palermo Green 2030"
-    step: "1"
-    area_interessata: "Comprende area da via Spina Santa, via Partanna Mondello, via Castelforte, fino al Lungomare Cristoforo Colombo (dal civico 1480) e Riserva di Capo Gallo."
+  - zona: 'Palermo Mondello, Partanna Mondello'
+    progetto: 'Palermo Green 2030'
+    step: '1'
+    area_interessata: 'Comprende area da via Spina Santa, via Partanna Mondello, via Castelforte, fino al Lungomare Cristoforo Colombo (dal civico 1480) e Riserva di Capo Gallo.'
     raccolta:
       umido: [martedì, giovedì, domenica]
       carta: [mercoledì]
@@ -73,10 +73,10 @@ zone:
       vetro: [domenica]
       indifferenziato: [giovedì]
 
-  - zona: "Palermo Tommaso Natale, Sferracavallo"
-    progetto: "Palermo Green 2030"
-    step: "2"
-    area_interessata: "Comprende via Barcarello, via Scalo di Sferracavallo, piazza Marina di Sferracavallo, via Torretta, viale Florio, viale Leone, via Pietro Calandra, fino a viale Regione Siciliana (tratto con via Minutilla)."
+  - zona: 'Palermo Tommaso Natale, Sferracavallo'
+    progetto: 'Palermo Green 2030'
+    step: '2'
+    area_interessata: 'Comprende via Barcarello, via Scalo di Sferracavallo, piazza Marina di Sferracavallo, via Torretta, viale Florio, viale Leone, via Pietro Calandra, fino a viale Regione Siciliana (tratto con via Minutilla).'
     raccolta:
       umido: [martedì, giovedì, domenica]
       carta: [mercoledì]
@@ -84,10 +84,10 @@ zone:
       vetro: [martedì]
       indifferenziato: [venerdì]
 
-  - zona: "Palermo San Lorenzo"
-    progetto: "Palermo Green 2030"
-    step: "3"
-    area_interessata: "Comprende viale Regione Siciliana (tratto Monte Rosa – rotonda Belgio), viale Francia, via Nuova, via dei Quartieri, via Florio, via Prestisimone, via Claudio Domino, via Fattori e traverse limitrofe."
+  - zona: 'Palermo San Lorenzo'
+    progetto: 'Palermo Green 2030'
+    step: '3'
+    area_interessata: 'Comprende viale Regione Siciliana (tratto Monte Rosa – rotonda Belgio), viale Francia, via Nuova, via dei Quartieri, via Florio, via Prestisimone, via Claudio Domino, via Fattori e traverse limitrofe.'
     raccolta:
       umido: [martedì, giovedì, domenica]
       carta: [mercoledì]
@@ -95,10 +95,10 @@ zone:
       vetro: [martedì]
       indifferenziato: [venerdì]
 
-  - zona: "Palermo Pallavicino"
-    progetto: "Palermo Green 2030"
-    step: "4a"
-    area_interessata: "Comprende area tra via Castelforte, Residence Fondo Anfossi, fino a viale Margherita di Savoia e Lungomare C. Colombo."
+  - zona: 'Palermo Pallavicino'
+    progetto: 'Palermo Green 2030'
+    step: '4a'
+    area_interessata: 'Comprende area tra via Castelforte, Residence Fondo Anfossi, fino a viale Margherita di Savoia e Lungomare C. Colombo.'
     raccolta:
       umido: [martedì, giovedì, domenica]
       carta: [mercoledì]
@@ -106,10 +106,10 @@ zone:
       vetro: [domenica]
       indifferenziato: [venerdì]
 
-  - zona: "Palermo Cruillas"
-    progetto: "Palermo Green 2030"
-    step: "4b"
-    area_interessata: "Quartiere nella periferia ovest e nord-ovest di Palermo (VI Circoscrizione)."
+  - zona: 'Palermo Cruillas'
+    progetto: 'Palermo Green 2030'
+    step: '4b'
+    area_interessata: 'Quartiere nella periferia ovest e nord-ovest di Palermo (VI Circoscrizione).'
     raccolta:
       umido: [martedì, giovedì, domenica]
       carta: [mercoledì]
@@ -121,111 +121,96 @@ categorie:
   umido:
     contenitore: marrone
     conferimento:
-      - "Sacco biodegradabile nel mastello/carrellato con coperchio marrone"
-      - "Isole ecologiche"
+      - 'Sacco biodegradabile nel mastello/carrellato con coperchio marrone'
+      - 'Isole ecologiche'
     ammessi:
-      - "Scarti alimentari: avanzi di cucina cotti o crudi, scarti di frutta e verdura, residui di pane"
-      - "Organici: gusci di uova e ossa, fondi di caffè e filtri, avanzi di carne, pesce, salumi"
-      - "Altri: segatura e truccioli, fazzoletti di carta unti, cenere"
+      - 'Scarti alimentari: avanzi di cucina cotti o crudi, scarti di frutta e verdura, residui di pane'
+      - 'Organici: gusci di uova e ossa, fondi di caffè e filtri, avanzi di carne, pesce, salumi'
+      - 'Altri: segatura e truccioli, fazzoletti di carta unti, cenere'
     rifiutati:
-      - "Stoviglie: piatti e bicchieri di carta"
-      - "Speciali: carcasse di animali, olio di frittura"
-      - "Igienici: pannolini ed assorbenti"
-      - "Altri: grandi quantità di ossa e gusci di mare, cibi ancora caldi"
+      - 'Stoviglie: piatti e bicchieri di carta'
+      - 'Speciali: carcasse di animali, olio di frittura'
+      - 'Igienici: pannolini ed assorbenti'
+      - 'Altri: grandi quantità di ossa e gusci di mare, cibi ancora caldi'
 
   carta:
     contenitore: bianco
     conferimento:
-      - "Sfuso o in sacco di carta nel mastello/carrello con coperchio bianco"
-      - "Isole ecologiche in sacchi trasparenti"
+      - 'Sfuso o in sacco di carta nel mastello/carrello con coperchio bianco'
+      - 'Isole ecologiche in sacchi trasparenti'
     ammessi:
-      - "Imballaggi: sacchetti di carta, scatole, imballaggi di cartone e cartoncino"
-      - "Carta pulita: carta da pacchi, giornali, riviste, quaderni"
+      - 'Imballaggi: sacchetti di carta, scatole, imballaggi di cartone e cartoncino'
+      - 'Carta pulita: carta da pacchi, giornali, riviste, quaderni'
     rifiutati:
-      - "Carta sporca: fazzolettini e tovaglioli usati, cartoni della pizza sporchi"
-      - "Carta trattata: scontrini fiscali di carta termica, carta chimica per fax"
-      - "Carta speciale: oleata, plastificata"
+      - 'Carta sporca: fazzolettini e tovaglioli usati, cartoni della pizza sporchi'
+      - 'Carta trattata: scontrini fiscali di carta termica, carta chimica per fax'
+      - 'Carta speciale: oleata, plastificata'
 
   plastica_e_metalli:
     contenitore: giallo
     conferimento:
-      - "Sacchi trasparenti nel mastello/carrellato con coperchio giallo"
-      - "Isole ecologiche in sacchi trasparenti"
-      - "Cartoni per bevande: puliti e schiacciati"
+      - 'Sacchi trasparenti nel mastello/carrellato con coperchio giallo'
+      - 'Isole ecologiche in sacchi trasparenti'
+      - 'Cartoni per bevande: puliti e schiacciati'
     ammessi:
-      - "Contenitori plastica: bottiglie e flaconi, buste e pellicole, vaschette e vasetti per yogurt"
-      - "Contenitori: tetra pak, cartoni per bevande e prodotti alimentari"
-      - "Stoviglie plastica: piatti e bicchieri (non posate)"
-      - "Metalli: lattine e vaschette in alluminio, fogli sottili, scatolette, barattoli e contenitori metallici"
+      - 'Contenitori plastica: bottiglie e flaconi, buste e pellicole, vaschette e vasetti per yogurt'
+      - 'Contenitori: tetra pak, cartoni per bevande e prodotti alimentari'
+      - 'Stoviglie plastica: piatti e bicchieri (non posate)'
+      - 'Metalli: lattine e vaschette in alluminio, fogli sottili, scatolette, barattoli e contenitori metallici'
     rifiutati:
-      - "Plastica non imballaggio: posate, giocattoli, penne e pennarelli, spazzolini da denti"
-      - "Metalli grandi: oggetti in metallo, pentole e posate, fili di ferro"
+      - 'Plastica non imballaggio: posate, giocattoli, penne e pennarelli, spazzolini da denti'
+      - 'Metalli grandi: oggetti in metallo, pentole e posate, fili di ferro'
 
   vetro:
     contenitore: verde
     conferimento:
-      - "Senza sacco nel mastello/carrellato con coperchio verde"
-      - "Imballaggi puliti"
-      - "Isole ecologiche in sacchi trasparenti"
+      - 'Senza sacco nel mastello/carrellato con coperchio verde'
+      - 'Imballaggi puliti'
+      - 'Isole ecologiche in sacchi trasparenti'
     ammessi:
-      - "Contenitori: bottiglie e vasetti"
+      - 'Contenitori: bottiglie e vasetti'
     rifiutati:
-      - "Illuminazione: lampadine e lampade al neon"
-      - "Oggetti: specchi, lastre vetro"
-      - "Ceramiche: oggetti in ceramica e porcellana"
+      - 'Illuminazione: lampadine e lampade al neon'
+      - 'Oggetti: specchi, lastre vetro'
+      - 'Ceramiche: oggetti in ceramica e porcellana'
 
   indifferenziato:
     contenitore: grigio
     conferimento:
-      - "Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio"
+      - 'Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio'
     ammessi:
-      - "Materiali vari: carta plastificata, gomma"
-      - "Supporti: CD, blu-ray, musicassette, VHS"
-      - "Ceramiche: ceramica, porcellana, terracotta"
+      - 'Materiali vari: carta plastificata, gomma'
+      - 'Supporti: CD, blu-ray, musicassette, VHS'
+      - 'Ceramiche: ceramica, porcellana, terracotta'
     rifiutati:
-      - "Materiali riciclabili"
-      - "Speciali: pile e farmaci, materiale edile, batterie auto"
-      - "Organici: sfalci di potatura"
-      - "Elettronici: apparecchiature elettroniche"
-      - "Pericolosi: materiali tossici o pericolosi"
-
-  residuale:
-    contenitore: grigio
-    conferimento:
-      - "Esclusivamente in sacchi trasparenti nel mastello/carrellato con coperchio grigio"
-    ammessi:
-      - "Materiali vari: carta plastificata, gomma"
-      - "Supporti: CD, blu-ray, musicassette, VHS"
-      - "Ceramiche: ceramica, porcellana, terracotta"
-    rifiutati:
-      - "Materiali riciclabili"
-      - "Speciali: pile e farmaci, materiale edile, batterie auto"
-      - "Organici: sfalci di potatura"
-      - "Elettronici: apparecchiature elettroniche"
-      - "Pericolosi: materiali tossici o pericolosi"
+      - 'Materiali riciclabili'
+      - 'Speciali: pile e farmaci, materiale edile, batterie auto'
+      - 'Organici: sfalci di potatura'
+      - 'Elettronici: apparecchiature elettroniche'
+      - 'Pericolosi: materiali tossici o pericolosi'
 
 altri_rifiuti:
   ingombranti_raee:
-    modalità: "conferimento diretto alle isole ecologiche"
-    esempi: "Suppellettili ed elettrodomestici"
+    modalità: 'conferimento diretto alle isole ecologiche'
+    esempi: 'Suppellettili ed elettrodomestici'
 
   abiti_usati_pellame:
-    modalità: "Conferimento diretto alle isole ecologiche negli orari di apertura"
-    esempi: "Abiti usati, stracci, scarpe, borse, pellame"
+    modalità: 'Conferimento diretto alle isole ecologiche negli orari di apertura'
+    esempi: 'Abiti usati, stracci, scarpe, borse, pellame'
 
   inerti:
-    modalità: "Piccole demolizioni (max 0.6 mc) alle isole ecologiche negli orari di apertura"
+    modalità: 'Piccole demolizioni (max 0.6 mc) alle isole ecologiche negli orari di apertura'
 
   sfalci_potature:
-    modalità: "Conferimento alle isole ecologiche negli orari di apertura"
+    modalità: 'Conferimento alle isole ecologiche negli orari di apertura'
 
   pannolini_pannoloni:
     modalità: "Raccolta anche su richiesta dell'utente al numero verde"
-    esempi: "Pannolini, pannoloni e traverse"
+    esempi: 'Pannolini, pannoloni e traverse'
 
   oli_vegetali:
-    modalità: "Conferimento presso isole ecologiche"
-    note: "Solo oli vegetali di provenienza domestica"
+    modalità: 'Conferimento presso isole ecologiche'
+    note: 'Solo oli vegetali di provenienza domestica'
 
   pile_farmaci:
-    modalità: "Conferimento presso farmacie, rivendite pile o isole ecologiche"
+    modalità: 'Conferimento presso farmacie, rivendite pile o isole ecologiche'

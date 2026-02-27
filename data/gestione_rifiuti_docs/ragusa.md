@@ -1,20 +1,21 @@
 # Raccolta differenziata - Comune di Ragusa
 
 Ultimo aggiornamento: 20-08-2025  
-Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-frequenze/)  
+Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-frequenze/)
 
 ---
 
 ## 📋 Informazioni generali - Comune di Ragusa
 
-- **Gestore operativo**: Impresa ecologica Busso Sebastiano  
-- **Orari conferimento**: I materiali vanno esposti dalle ore 06:00 alle ore 12:00 del giorno di raccolta
+- **Gestore operativo**: Impresa ecologica Busso Sebastiano
+- **Orari conferimento**: I materiali vanno esposti dalle ore 20:00 alle ore 22:00 del giorno di raccolta
 
 ---
 
 ## 🗑️ Calendario raccolta per zona e periodo
 
 ### Zona Ragusa - Periodo estivo (Giugno - Settembre)
+
 - 🍕 Umido/Organico: Lunedì, Mercoledì, Sabato
 - 📦 Carta: Giovedì
 - 🪣 Plastica e lattine: Martedì
@@ -23,6 +24,7 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-freque
 - 👚 Abiti usati: Primo sabato del mese
 
 ### Zona Ragusa - Periodo invernale (Ottobre - Maggio)
+
 - 🍕 Umido/Organico: Lunedì, Mercoledì, Sabato
 - 📦 Carta: Giovedì
 - 🪣 Plastica e lattine: Martedì
@@ -31,6 +33,7 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-freque
 - 👚 Abiti usati: Primo sabato del mese
 
 ### Zona Marina di Ragusa - Periodo estivo (Giugno - Settembre)
+
 - 🍕 Umido/Organico: Lunedì, Mercoledì, Sabato
 - 📦 Carta: Giovedì
 - 🪣 Plastica e lattine: Martedì, Sabato
@@ -39,6 +42,7 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-freque
 - 👚 Abiti usati: Primo sabato del mese
 
 ### Zona Marina di Ragusa - Periodo invernale (Ottobre - Maggio)
+
 - 🍕 Umido/Organico: Lunedì, Mercoledì, Sabato
 - 📦 Carta: Giovedì
 - 🪣 Plastica e lattine: Martedì
@@ -48,29 +52,35 @@ Fonte ufficiale: [Ragusa a raccolta](https://ragusaraccolta.it/calendario-freque
 
 ---
 
-## ♻️ Dettagli per tipologia di rifiuto
+## ♻️ Dettagli per tipologia di rifiuto - Ragusa
 
 ### 🍕 Umido/Organico
+
 ✅ Si può gettare: scarti alimentari, scarti organici, fondi caffè/tè, gusci d'uovo, salviette compostabili  
-❌ Non si può gettare: materiali non organici, pannolini, legno trattato  
+❌ Non si può gettare: materiali non organici, pannolini, legno trattato
 
 ### 📦 Carta
+
 ✅ Si può gettare: carta, giornali, libri, scatole, tetrapak puliti  
-❌ Non si può gettare: carta sporca/unta, plastificata, stoviglie di carta  
+❌ Non si può gettare: carta sporca/unta, plastificata, stoviglie di carta
 
 ### 🪣 Plastica e Metalli
+
 ✅ Si può gettare: bottiglie, flaconi, vaschette, lattine, sacchetti, grucce  
-❌ Non si può gettare: posate monouso, oggetti non da imballaggio, ferro vecchio  
+❌ Non si può gettare: posate monouso, oggetti non da imballaggio, ferro vecchio
 
 ### 🫙 Vetro
+
 ✅ Si può gettare: bottiglie di vetro, vasetti, barattoli  
-❌ Non si può gettare: lampadine, specchi, ceramiche, flebo  
+❌ Non si può gettare: lampadine, specchi, ceramiche, flebo
 
 ### 🗑️ Indifferenziato
+
 ✅ Si può gettare: gomma, carta/plastica oleata, CD/DVD/VHS, giocattoli, pannolini, flebo vuote  
-❌ Non si può gettare: materiali riciclabili, rifiuti tossici  
+❌ Non si può gettare: materiali riciclabili, rifiuti tossici
 
 ### 🚮 Altri rifiuti speciali
+
 - Ingombranti e RAEE: isole ecologiche
 - Abiti usati e pellame: primo sabato del mese o isole ecologiche
 - Inerti: conferimento diretto alle isole ecologiche

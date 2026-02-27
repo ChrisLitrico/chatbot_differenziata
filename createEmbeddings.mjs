@@ -203,6 +203,10 @@ function extractMetadata(text, fileName) {
     comune = "Ragusa";
   } else if (normalizedFile.includes("siracusa")) {
     comune = "Siracusa";
+  } else if (normalizedFile.includes("trapani")) {
+    comune = "Trapani";
+  } else if (normalizedFile.includes("agrigento")) {
+    comune = "Agrigento";
   }
 
   // 2. ESTRAI LA ZONA DAL CONTENUTO DEL CHUNK
@@ -216,7 +220,7 @@ function extractMetadata(text, fileName) {
   
   // Pattern alternativo: "Catania Nord", "Catania Centro", "Catania Sud"
   if (!zona) {
-    const zonaAltMatch = text.match(/(?:Catania|Messina|Palermo|Ragusa|Siracusa)\s+(Nord|Centro|Sud)/i);
+    const zonaAltMatch = text.match(/(?:Catania|Messina|Palermo|Ragusa|Siracusa|Trapani|Agrigento)\s+(Nord|Centro|Sud)/i);
     if (zonaAltMatch) {
       zona = zonaAltMatch[1].charAt(0).toUpperCase() + zonaAltMatch[1].slice(1).toLowerCase();
     }

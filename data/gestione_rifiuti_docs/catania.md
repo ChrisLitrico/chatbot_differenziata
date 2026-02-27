@@ -42,7 +42,7 @@ Fonte ufficiale: [SRR Catania Metropolitana](https://www.srrcataniametropolitana
 
 ---
 
-## ♻️ Dettagli per tipologia di rifiuto
+## ♻️ Dettagli per tipologia di rifiuto - Catania
 
 ### Umido/Organico
 
@@ -76,7 +76,7 @@ Fonte ufficiale: [SRR Catania Metropolitana](https://www.srrcataniametropolitana
 
 ---
 
-## 🚮 Altri rifiuti speciali
+## 🚮 Altri rifiuti speciali - Catania
 
 - Ingombranti e RAEE: ritiro su strada o isole ecologiche
 - Abiti usati: conferimento diretto isole ecologiche
@@ -98,6 +98,6 @@ Fonte ufficiale: [SRR Catania Metropolitana](https://www.srrcataniametropolitana
 
 **Contatti gestori**:
 
-- **Catania Nord**: [Ecocar](https://www.ecocarprovinciactnord.it/contatti/)
+- **Catania Nord**: [Supereco](https://www.superecosrl.com/public/comune-di-catania#centro-raccolta-rifiuti)
 - **Catania Centro**: [Gema spa](https://www.gema-spa.com/contatti/)
-- **Catania Sud**: [Supereco](https://www.superecosrl.com/public/comune-di-catania#centro-raccolta-rifiuti)
+- **Catania Sud**: [Ecocar](https://www.ecocarprovinciactnord.it/contatti/)
