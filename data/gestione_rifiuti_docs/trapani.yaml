@@ -1,0 +1,184 @@
+comune: 'Trapani'
+provincia: 'Trapani'
+regione: 'Sicilia'
+last_updated: '2026-02-28'
+fonte: 'https://comune.trapani.it/novita/calendari-2026-raccolta-differenziata-a-trapani/'
+
+gestore: 'Formula Ambiente S.P.A.'
+pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+numero_verde_fisso: '800.888.077'
+numero_verde_mobile: '0923.1964442'
+
+orari_conferimento: 'I contenitori vanno esposti dalle ore 21:00 del giorno precedente e ritirati entro le ore 06:00 del giorno di raccolta. Il servizio di raccolta viene svolto la mattina.'
+
+nota_raccolta_quindicinale: 'A Trapani la raccolta di Carta e Vetro/Metalli è quindicinale (ogni 2 settimane), sempre di giovedì, alternandosi tra loro.'
+
+zone:
+  - zona: 'Trapani Zona 1 - Centro Storico'
+    gestore: 'Formula Ambiente S.P.A.'
+    pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+    raccolta:
+      umido: [lunedì, mercoledì, sabato]
+      secco_residuo: [martedì]
+      carta: ['giovedì (quindicinale, settimane pari)']
+      vetro_e_metalli: ['giovedì (quindicinale, settimane dispari)']
+      plastica: [venerdì]
+
+  - zona: 'Trapani Zona 2 - Dante Alighieri'
+    gestore: 'Formula Ambiente S.P.A.'
+    pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+    raccolta:
+      umido: [lunedì, mercoledì, sabato]
+      secco_residuo: [martedì]
+      carta: ['giovedì (quindicinale, settimane pari)']
+      vetro_e_metalli: ['giovedì (quindicinale, settimane dispari)']
+      plastica: [venerdì]
+
+  - zona: 'Trapani Zona 3 - Fardella Virgilio'
+    gestore: 'Formula Ambiente S.P.A.'
+    pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+    raccolta:
+      umido: [lunedì, mercoledì, sabato]
+      secco_residuo: [martedì]
+      carta: ['giovedì (quindicinale, settimane pari)']
+      vetro_e_metalli: ['giovedì (quindicinale, settimane dispari)']
+      plastica: [venerdì]
+
+  - zona: 'Trapani Zona 4 - S. Alberto, Fontanelle Sud'
+    gestore: 'Formula Ambiente S.P.A.'
+    pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+    raccolta:
+      umido: [lunedì, mercoledì, sabato]
+      plastica: [martedì]
+      carta: ['giovedì (quindicinale, settimane dispari)']
+      vetro_e_metalli: ['giovedì (quindicinale, settimane pari)']
+      secco_residuo: [venerdì]
+
+  - zona: 'Trapani Zona 5 - Villa Rosina, Xitta, Fulgatore, Mokarta, Ummari'
+    gestore: 'Formula Ambiente S.P.A.'
+    pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+    raccolta:
+      umido: [lunedì, mercoledì, sabato]
+      plastica: [martedì]
+      carta: ['giovedì (quindicinale, settimane dispari)']
+      vetro_e_metalli: ['giovedì (quindicinale, settimane pari)']
+      secco_residuo: [venerdì]
+
+  - zona: 'Misiliscemi (Salinagrande, Pietratagliata, Palma, Marausa, Locogrande, Rilievo, Guarrato, Fontanasalsa)'
+    gestore: 'Formula Ambiente S.P.A.'
+    pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+    raccolta:
+      umido: [lunedì, mercoledì, sabato]
+      plastica: [martedì]
+      carta: ['giovedì (quindicinale, settimane dispari)']
+      vetro_e_metalli: ['giovedì (quindicinale, settimane pari)']
+      secco_residuo: [venerdì]
+
+categorie:
+  carta:
+    contenitore: blu
+    conferimento:
+      - 'In sacchi di carta/cartoni o sfusa nel contenitore blu'
+      - 'Raccolta quindicinale il giovedì'
+    ammessi:
+      - 'Riviste, giornali, fotocopie, quaderni, fogli'
+      - 'Imballaggi e scatole in cartone ondulato, pacchi vuoti di cartone per pasta o riso'
+      - 'Sacchetti di carta, buste'
+      - 'Contenitori per succhi, bevande e latte tipo tetrapack'
+      - 'Cartoni della pizza senza residui o avanzi di cibo'
+    rifiutati:
+      - 'Piatti e bicchieri di plastica'
+      - 'Carta sporca e termica o plastificata'
+      - 'Carta sporca di detergenti per la pulizia, copertine plastificate'
+      - 'Carte degli insaccati o del macellaio'
+      - 'Pannolini, pannoloni, assorbenti igienici, cotone'
+      - 'Carta stagnola, carta forno'
+
+  umido:
+    contenitore: marrone
+    conferimento:
+      - 'Nel contenitore marrone'
+      - "Lettiere biodegradabili nel cassonetto dell'umido"
+    ammessi:
+      - 'Scarti di frutta e verdura, avanzi di cibo, bucce'
+      - "Fondi di caffè, piccole ossa, gusci d'uovo"
+      - 'Carta da cucina e salviette di carta unte'
+      - 'Ceneri spente, piccole quantità di foglie secche, fiori recisi'
+    rifiutati:
+      - 'Gusci o valve di molluschi'
+      - 'Piatti, posate, bicchieri'
+      - 'Contenitori di vetro, alluminio o acciaio, plastica'
+      - 'Contenitori in cartone per bevande e alimenti'
+      - 'Rifiuti non organici, rifiuti liquidi'
+      - 'Pannolini, garze e cerotti, lettiere per animali (non biodegradabili)'
+
+  plastica:
+    contenitore: giallo
+    conferimento:
+      - 'Sacchi semitrasparenti gialli nel contenitore giallo'
+    ammessi:
+      - 'Bottiglie per bevande, flaconi per shampoo e detersivi'
+      - 'Reti per frutta e verdura, cellophane, nylon'
+      - 'Contenitori per alimenti in plastica, vasetti per yogurt e formaggi'
+      - 'Piatti e bicchieri monouso in plastica'
+    rifiutati:
+      - 'Oggetti in plastica: giocattoli, elettrodomestici, arredi o casalinghi'
+      - 'Posate in plastica, musicassette e VHS, CD, DVD'
+      - 'Siringhe'
+      - 'Contenitori per vernici e solventi, plastica dura non imballaggio'
+
+  vetro_e_metalli:
+    contenitore: verde
+    conferimento:
+      - 'Nel contenitore verde'
+      - 'Raccolta quindicinale il giovedì'
+    ammessi:
+      - 'Vetro semplice di bottiglie per bevande'
+      - 'Barattoli di vetro di sottoli o sottaceti'
+      - 'Bottiglie o barattoli in vetro per conserve e passata'
+      - 'Lattine in alluminio di bevande, bombolette spray per alimenti'
+      - 'Barattoli di acciaio, latta e banda stagnata'
+      - 'Tappi a vite e a corona, carta stagnola'
+    rifiutati:
+      - 'Specchi, stoviglie o parabrezza'
+      - 'Oggetti in ceramica, porcellana e plastica'
+      - 'Lampadine e neon, schermi di PC e televisori'
+      - 'CD e DVD, lastre di finestre e porte'
+      - 'Teglie e pirofile in pyrex, cristalli'
+      - 'Contenitori per vernici e solventi'
+
+  secco_residuo:
+    contenitore: grigio
+    conferimento:
+      - 'Nel contenitore grigio'
+    ammessi:
+      - 'Carta sporca, termica o plastificata'
+      - 'Carta sporca di detergenti, copertine plastificate, carta plastificata degli insaccati'
+      - 'Carta accoppiata con altri materiali di plastica o alluminio'
+      - 'Cotone, posate in plastica, rasoi usa e getta, accendini'
+      - 'Stoviglie o piccoli oggetti in ceramica o porcellana'
+      - 'Pannolini, pannoloni, assorbenti igienici'
+      - 'VHS, musicassette, DVD, CD, lettiere per animali'
+    rifiutati:
+      - 'Materiali riciclabili: carta, plastica, vetro, metalli, umido organico'
+      - 'Rifiuti ingombranti, elettrodomestici e apparecchi elettronici'
+      - 'Sfalci e ramaglie, farmaci scaduti, pile scariche, inerti'
+
+altri_rifiuti:
+  ingombranti:
+    modalità: 'Ritiro gratuito a domicilio bordo strada (max 3 pezzi) al numero verde 800.888.077 oppure conferimento al CCR'
+    esempi: "Arredi, complementi d'arredo, porte, infissi, divani, poltrone, grandi elettrodomestici"
+  pannolini_pannoloni:
+    modalità: 'Ritiro su richiesta al 800.888.077'
+  scarti_vegetali:
+    modalità: 'Conferimento al CCR di Via V.nzo Baviera n.1, max 1mc'
+    esempi: 'Sfalci, erba, ramaglie, potature di alberi e siepi, foglie secche'
+  abbigliamento:
+    modalità: 'Sempre conferibile al CCR di Via V.nzo Baviera n.1 oppure ai punti raccolta mobile'
+  farmaci_scaduti:
+    modalità: 'Conferimento al CCR'
+  pile_scariche:
+    modalità: 'Conferimento al CCR'
+  olio_vegetale:
+    modalità: 'Conferimento al CCR'
+    note: 'Solo olio vegetale da cucina'

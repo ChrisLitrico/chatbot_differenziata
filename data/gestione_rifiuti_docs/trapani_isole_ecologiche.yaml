@@ -1,0 +1,47 @@
+comune: Trapani
+provincia: Trapani
+tipo: isole_ecologiche
+last_updated: '2026-02-28'
+fonte: 'https://comune.trapani.it/argomento/gestione-rifiuti/'
+
+gestore: 'Formula Ambiente S.P.A.'
+pagina_contatti_gestore: 'https://formulambiente.it/trapani/'
+numero_verde_fisso: '800.888.077'
+numero_verde_mobile: '0923.1964442'
+
+isole:
+  - nome: CCR Trapani
+    indirizzo: 'Via Vincenzo Baviera, n.1 (zona industriale)'
+    accesso: "tessera sanitaria o carta d'identità, iscritti al ruolo TARI"
+    orari:
+      periodo_invernale:
+        periodo: '16 settembre - 14 giugno'
+        mercoledi_giovedi_sabato: '07:30 - 13:00'
+        lunedi_martedi_venerdi: '13:00 - 18:30'
+      periodo_estivo:
+        periodo: '15 giugno - 15 settembre'
+        lunedi_martedi_mercoledi_venerdi_sabato: '07:30 - 13:00'
+        giovedi: '13:00 - 18:30'
+
+rifiuti_ammessi:
+  carta: [carta, cartone, tetrapack]
+  plastica: [bottiglie, flaconi, contenitori in plastica]
+  vetro: [bottiglie, barattoli]
+  metalli: [lattine, barattoli, banda stagnata]
+  farmaci_scaduti: [farmaci scaduti]
+  abbigliamento: [abiti usati, stracci, scarpe]
+  inerti: [max 2 secchi da 25 litri]
+  bombolette_spray: [bombolette spray]
+  sfalci_potatura: [sfalci, erba, ramaglie, potature, max 1mc]
+  olio_vegetale: [olio vegetale da cucina]
+  ingombranti: [arredi, complementi d'arredo, porte, infissi, divani, poltrone, grandi elettrodomestici, max 3 pezzi]
+
+punti_raccolta_abbigliamento:
+  - nome: Piazza Palma
+  - nome: Piazza Rilievo
+  - nome: Piazza Scio
+  - nome: Piazza Via Medea
+  - nome: Piazzale Ilio
+  - nome: Piazzale Sorrentino
+  - nome: Slargo SS 115 (Xitta)
+  - nome: Fulgatore - Piazzale Centro Sociale
