@@ -10,7 +10,7 @@ type RetrievedDoc = {
 const EMBEDDING_MODEL = process.env.EMBEDDING_MODEL || 'text-embedding-3-small'
 const DB_NAME = 'docs'
 const COLLECTION_NAME = 'embeddings'
-const INDEX_NAME = process.env.MONGODB_VECTOR_INDEX || 'embeddings_index'
+const INDEX_NAME = process.env.MONGODB_VECTOR_INDEX || 'vector_index_1'
 const VECTOR_PATH = process.env.MONGODB_VECTOR_PATH || 'embedding'
 const MAX_RESULTS = Number(process.env.RAG_RESULTS || 4)
 const FETCH_RESULTS = Math.max(12, MAX_RESULTS * 3)
@@ -20,6 +20,7 @@ function getEmbeddingsModel(): OpenAIEmbeddings {
   if (!_embeddingsModel) {
     _embeddingsModel = new OpenAIEmbeddings({
       modelName: EMBEDDING_MODEL,
+      dimensions: 512,
       stripNewLines: true,
     })
   }

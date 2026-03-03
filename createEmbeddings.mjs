@@ -366,6 +366,7 @@ async function main() {
   const collection = client.db("docs").collection("embeddings");
   const embeddingsModel = new OpenAIEmbeddings({
     modelName: process.env.EMBEDDING_MODEL || "text-embedding-3-small",
+    dimensions: 512,
   });
   const docs_dir = "data/gestione_rifiuti_docs";
   const fileNames = await fsp.readdir(docs_dir);
