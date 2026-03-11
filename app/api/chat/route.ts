@@ -4,8 +4,8 @@ import { formatRagContext, retrieveRelevantDocuments } from '@/app/lib/rag'
 // streaming responses up to 60 seconds (Netlify supports up to 26s free, 900s pro)
 export const maxDuration = 60
 
-// Default: sonar (cheap, fast). Override with PERPLEXITY_MODEL env var if needed.
-const MODEL_NAME = process.env.PERPLEXITY_MODEL || 'sonar'
+// Default: gpt-4o-mini (no web search, grounded on RAG context). Override with OPENAI_MODEL env var.
+const MODEL_NAME = process.env.OPENAI_MODEL || 'gpt-4o-mini'
 
 function extractMessageText(message: UIMessage | undefined): string {
   if (!message) return ''
@@ -45,7 +45,15 @@ export async function POST(req: Request) {
       console.error('[Chat API] Vector search error:', vectorError)
     }
 
-    const SYSTEM_TEMPLATE = `Sei un assistente amichevole per la raccolta differenziata in Sicilia.
+    const SYSTEM_TEMPLATE = `Sei un assistente per la raccolta differenziata in Sicilia.
+
+COMUNI SUPPORTATI: Catania, Messina, Palermo, Ragusa, Siracusa, Trapani.
+
+REGOLA ZERO — NESSUNA CONOSCENZA ESTERNA:
+- La tua UNICA fonte di informazioni è il CONTESTO fornito in fondo a questo messaggio.
+- NON usare MAI conoscenze proprie, dati memorizzati, o informazioni non presenti nel CONTESTO.
+- Se un'informazione non è nel CONTESTO, non la conosci e non devi inventarla né dedurla.
+- Questo vale anche per calendari di raccolta, orari, indirizzi, gestori e qualsiasi dato specifico.
 
 AMBITO:
 - Rispondi SOLO a domande riguardanti raccolta differenziata, riciclo, smaltimento rifiuti, isole ecologiche, calendari di raccolta e tematiche ambientali correlate in Sicilia.
@@ -61,7 +69,7 @@ REGOLA FONDAMENTALE SUL CONTESTO:
 STILE:
 - Rispondi in modo naturale e conciso, come parleresti a un amico
 - Evita ripetizioni: non ripetere zona/comune se già chiari dal contesto
-- Usa emoji per i tipi di rifiuto: � organico, 📦 carta, 🪣 plastica, 🫙 vetro, 🗑️ indifferenziato
+- Usa emoji per i tipi di rifiuto: 🌱 organico, 📦 carta, 🪣 plastica, 🫙 vetro, 🗑️ indifferenziato
 
 FORMATO:
 - Vai dritto al punto con le info essenziali
@@ -71,12 +79,11 @@ FORMATO:
 FONTI E LINK:
 - Alla fine della risposta, aggiungi UNA SOLA sezione "📎 Link utili:" con i link pertinenti dal contesto, formattati come link Markdown: [Nome](URL)
 - NON inserire link nel corpo del testo: mettili SOLO nella sezione finale
-- Se l'utente chiede info che non hai, suggerisci il sito ufficiale del comune se presente nel contesto
 
-SE NON HAI INFO SPECIFICHE NEL CONTESTO:
-- Se la domanda è pertinente ai rifiuti ma non hai dati specifici, fornisci indicazioni generali specificando che sono generiche
-- Suggerisci di consultare il sito ufficiale del gestore o di contattarli direttamente se hai il link
-- Solo se non puoi aiutare: "Non ho questa informazione. Contatta il gestore della tua zona."
+SE IL CONTESTO NON CONTIENE DATI PERTINENTI:
+- Se la domanda riguarda un comune non tra quelli supportati, o il CONTESTO non ha informazioni utili, rispondi ESATTAMENTE così (adattando il comune se rilevato): "Non ho dati per questa zona. Posso aiutarti per: **Catania, Messina, Palermo, Ragusa, Siracusa, Trapani**. Di quale comune hai bisogno?"
+- NON fornire mai indicazioni generiche, stime o "di solito si fa così": se non è nel CONTESTO, non rispondere con dati inventati.
+- NON suggerire siti web o contatti che non siano esplicitamente presenti nel CONTESTO.
 
 CONTESTO:
 ${ragContext}`
@@ -92,19 +99,19 @@ ${ragContext}`
         })),
     ]
 
-    // Call Perplexity
-    const perplexityRes = await fetch('https://api.perplexity.ai/chat/completions', {
+    // Call OpenAI
+    const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.PERPLEXITY_API_KEY}`,
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({ model: MODEL_NAME, messages: perplexityMessages, stream: true }),
     })
 
-    if (!perplexityRes.ok) {
-      const err = await perplexityRes.text()
-      throw new Error(`Perplexity error ${perplexityRes.status}: ${err}`)
+    if (!openaiRes.ok) {
+      const err = await openaiRes.text()
+      throw new Error(`OpenAI error ${openaiRes.status}: ${err}`)
     }
 
     // Re-format Perplexity SSE into AI SDK v5 UIMessageStream protocol
@@ -124,7 +131,7 @@ ${ragContext}`
         emit({ type: 'start', messageId })
         emit({ type: 'text-start', id: textPartId })
 
-        const reader = perplexityRes.body?.getReader()
+        const reader = openaiRes.body?.getReader()
         if (!reader) {
           controller.close()
           return
@@ -148,10 +155,8 @@ ${ragContext}`
               if (data === '[DONE]') continue
               try {
                 const parsed = JSON.parse(data)
-                let delta: string = parsed.choices?.[0]?.delta?.content ?? ''
+                const delta: string = parsed.choices?.[0]?.delta?.content ?? ''
                 if (delta) {
-                  // Strip Perplexity citation markers like [1], [5][8], etc.
-                  delta = delta.replace(/\[\d+\]/g, '')
                   emit({ type: 'text-delta', id: textPartId, delta })
                 }
               } catch {
@@ -165,9 +170,8 @@ ${ragContext}`
             if (data && data !== '[DONE]') {
               try {
                 const parsed = JSON.parse(data)
-                let delta: string = parsed.choices?.[0]?.delta?.content ?? ''
+                const delta: string = parsed.choices?.[0]?.delta?.content ?? ''
                 if (delta) {
-                  delta = delta.replace(/\[\d+\]/g, '')
                   emit({ type: 'text-delta', id: textPartId, delta })
                 }
               } catch {

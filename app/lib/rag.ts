@@ -14,6 +14,10 @@ const INDEX_NAME = process.env.MONGODB_VECTOR_INDEX || 'vector_index_1'
 const VECTOR_PATH = process.env.MONGODB_VECTOR_PATH || 'embedding'
 const MAX_RESULTS = Number(process.env.RAG_RESULTS || 4)
 const FETCH_RESULTS = Math.max(12, MAX_RESULTS * 3)
+// Soglia score per query generiche (nessun comune rilevato)
+const SCORE_THRESHOLD = parseFloat(process.env.RAG_SCORE_THRESHOLD || '0.60')
+// Soglia score ridotta per documenti del comune esplicitamente richiesto
+const COMUNE_SCORE_THRESHOLD = parseFloat(process.env.RAG_COMUNE_SCORE_THRESHOLD || '0.40')
 
 let _embeddingsModel: OpenAIEmbeddings | null = null
 function getEmbeddingsModel(): OpenAIEmbeddings {
@@ -315,7 +319,10 @@ export async function retrieveRelevantDocuments(query: string): Promise<Retrieve
     const baseDocs = await vectorSearch(normalizedQuery)
 
     if (!targetComune && !targetZona) {
-      return dedupeDocuments(baseDocs).slice(0, MAX_RESULTS)
+      // Query generica: applica soglia alta per evitare documenti irrilevanti
+      const filtered = baseDocs.filter((doc) => (doc.score !== undefined ? doc.score >= SCORE_THRESHOLD : true))
+      console.log(`[RAG] query generica: ${filtered.length}/${baseDocs.length} docs sopra soglia ${SCORE_THRESHOLD}`)
+      return dedupeDocuments(filtered).slice(0, MAX_RESULTS)
     }
 
     let prioritizedDocs = baseDocs
@@ -330,7 +337,25 @@ export async function retrieveRelevantDocuments(query: string): Promise<Retrieve
       prioritizedDocs = prioritizeZona(prioritizedDocs, targetZona)
     }
 
-    const result = dedupeDocuments(prioritizedDocs).slice(0, MAX_RESULTS)
+    // Filtro score contestuale:
+    // - documenti che matchano il comune rilevato: soglia bassa (COMUNE_SCORE_THRESHOLD)
+    // - query generiche o documenti non del comune: soglia alta (SCORE_THRESHOLD)
+    const normalizedTarget = targetComune ? normalize(targetComune) : null
+    const scoredDocs = prioritizedDocs.filter((doc) => {
+      if (doc.score === undefined) return true
+      if (normalizedTarget && normalize(getDocComune(doc)) === normalizedTarget) {
+        return doc.score >= COMUNE_SCORE_THRESHOLD
+      }
+      return doc.score >= SCORE_THRESHOLD
+    })
+
+    const afterFilter = scoredDocs.length > 0 ? scoredDocs : prioritizedDocs
+    console.log(
+      `[RAG] score filter: ${scoredDocs.length}/${prioritizedDocs.length} docs passati` +
+        (normalizedTarget ? ` (comune: ${normalizedTarget}, soglia comune: ${COMUNE_SCORE_THRESHOLD}, generica: ${SCORE_THRESHOLD})` : ` (soglia generica: ${SCORE_THRESHOLD})`),
+    )
+
+    const result = dedupeDocuments(afterFilter).slice(0, MAX_RESULTS)
     return result
   } catch (error) {
     console.error('[RAG] retrieveRelevantDocuments error:', error)
